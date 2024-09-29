@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://byjobqop50cew"]
+[gd_scene load_steps=8 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://icon.svg" id="1_2m0nl"]
 [ext_resource type="Script" path="res://warrior.gd" id="1_63q3t"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_0jxj5"]
+[ext_resource type="Script" path="res://attack_component.gd" id="4_e1mwq"]
+[ext_resource type="Script" path="res://hitbox.gd" id="4_osyxv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
-radius = 59.0085
+radius = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nla3r"]
+radius = 60.0
 
 [node name="Warrior" type="CharacterBody2D"]
 up_direction = Vector2(-1, 0)
@@ -21,6 +26,26 @@ shape = SubResource("CircleShape2D_7knae")
 script = ExtResource("3_0jxj5")
 
 [node name="DashTimer" type="Timer" parent="."]
+wait_time = 0.2
 one_shot = true
 
+[node name="Hitbox" type="Area2D" parent="."]
+monitoring = false
+script = ExtResource("4_osyxv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Hitbox"]
+position = Vector2(152, 0)
+texture = ExtResource("1_2m0nl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(152, 0)
+shape = SubResource("CircleShape2D_nla3r")
+
+[node name="AttackComponent" type="Node" parent="."]
+script = ExtResource("4_e1mwq")
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.25
+
 [connection signal="timeout" from="DashTimer" to="MovementComponent" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="AttackComponent" method="_on_attack_timer_timeout"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://deq5qgy4siawj"]
+
+[ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://icon.svg" id="1_y8omv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c5pla"]
+radius = 60.0
+
+[node name="Rat" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_y8omv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c5pla")
