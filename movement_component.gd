@@ -27,7 +27,6 @@ func input_dash():
 		dashing = true
 		speed = 1000
 		$"../DashTimer".start()
-		print("Dash")
 
 func _on_dash_timer_timeout():
 	dashing = false
