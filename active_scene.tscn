@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://ds6444yst4pnl"]
+[gd_scene load_steps=2 format=3 uid="uid://ds6444yst4pnl"]
+
+[ext_resource type="PackedScene" uid="uid://byjobqop50cew" path="res://warrior.tscn" id="1_hciqs"]
 
 [node name="ActiveScene" type="Node2D"]
+
+[node name="Warrior" parent="." instance=ExtResource("1_hciqs")]

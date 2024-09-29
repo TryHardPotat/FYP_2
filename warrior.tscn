@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://byjobqop50cew"]
+[gd_scene load_steps=5 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://icon.svg" id="1_2m0nl"]
+[ext_resource type="Script" path="res://warrior.gd" id="1_63q3t"]
+[ext_resource type="Script" path="res://movement_component.gd" id="3_0jxj5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
 radius = 59.0085
 
 [node name="Warrior" type="CharacterBody2D"]
+up_direction = Vector2(-1, 0)
+script = ExtResource("1_63q3t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2m0nl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7knae")
+
+[node name="Movement_Component" type="Node" parent="."]
+script = ExtResource("3_0jxj5")
