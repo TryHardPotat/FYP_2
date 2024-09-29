@@ -17,5 +17,10 @@ texture = ExtResource("1_2m0nl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7knae")
 
-[node name="Movement_Component" type="Node" parent="."]
+[node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("3_0jxj5")
+
+[node name="DashTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DashTimer" to="MovementComponent" method="_on_dash_timer_timeout"]
