@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://byjobqop50cew"]
 
-[ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://icon.svg" id="1_2m0nl"]
+[ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="1_2m0nl"]
 [ext_resource type="Script" path="res://warrior.gd" id="1_63q3t"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_0jxj5"]
 [ext_resource type="Script" path="res://attack_component.gd" id="4_e1mwq"]
 [ext_resource type="Script" path="res://hitbox.gd" id="4_osyxv"]
-[ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/pointer.png" id="5_jql5s"]
+[ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/textures/pointer.png" id="5_jql5s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
 radius = 60.0
@@ -17,6 +17,8 @@ radius = 60.0
 motion_mode = 1
 up_direction = Vector2(-1, 0)
 script = ExtResource("1_63q3t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2m0nl")
