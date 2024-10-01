@@ -1,16 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://deq5qgy4siawj"]
+[gd_scene load_steps=7 format=3 uid="uid://deq5qgy4siawj"]
 
 [ext_resource type="Script" path="res://rat.gd" id="1_12t34"]
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="1_y8omv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7koix"]
-bg_color = Color(1, 0, 0, 1)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5pla"]
 radius = 60.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vbvp"]
+size = Vector2(128, 128)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu3e2"]
 size = Vector2(128, 128)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7koix"]
+bg_color = Color(1, 0, 0, 1)
 
 [node name="Rat" type="CharacterBody2D"]
 motion_mode = 1
@@ -20,15 +23,32 @@ script = ExtResource("1_12t34")
 self_modulate = Color(1, 0, 0, 1)
 texture = ExtResource("1_y8omv")
 
-[node name="HealthBar" type="ProgressBar" parent="Sprite2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c5pla")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_7vbvp")
+debug_color = Color(0.989496, 0, 0.28976, 0.42)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_qu3e2")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasGroup"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -210.0
-offset_bottom = -201.0
+offset_left = -64.0
+offset_top = -81.0
+offset_right = 64.0
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_7koix")
@@ -36,10 +56,4 @@ max_value = 10.0
 value = 10.0
 show_percentage = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_c5pla")
-
-[node name="Hurtbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-shape = SubResource("RectangleShape2D_qu3e2")
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

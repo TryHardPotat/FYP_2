@@ -43,6 +43,7 @@ one_shot = true
 [node name="Hitbox" type="Area2D" parent="."]
 monitoring = false
 script = ExtResource("4_osyxv")
+damage = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(120, 0)
