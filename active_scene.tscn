@@ -9,9 +9,23 @@
 
 [node name="Warrior" parent="." instance=ExtResource("1_hciqs")]
 
-[node name="Rat" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Rat" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
 position = Vector2(364, -1)
-player = NodePath("../Warrior")
+player = NodePath("../../Warrior")
+
+[node name="Rat2" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
+position = Vector2(685, -9)
+player = NodePath("../../Warrior")
+
+[node name="Rat3" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
+position = Vector2(268, 398)
+player = NodePath("../../Warrior")
+
+[node name="Rat4" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
+position = Vector2(663, 250)
+player = NodePath("../../Warrior")
 
 [node name="DungeonGenerator" type="Node" parent="."]
 script = ExtResource("3_onls7")
