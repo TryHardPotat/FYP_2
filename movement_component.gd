@@ -22,7 +22,7 @@ func input_handler():
 	input_direction.y = Input.get_axis("move_up", "move_down")
 	input_direction = input_direction.normalized()
 
-func movement_handler(delta):
+func movement_handler(_delta):
 	velocity = input_direction * speed
 
 ## TODO: Implement dash cooldown.

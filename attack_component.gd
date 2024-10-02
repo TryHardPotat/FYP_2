@@ -16,7 +16,7 @@ func attack():
 	if attack_timer:
 		attack_timer.start()
 
-func _process(delta):
+func _process(_delta):
 	input_attack()
 
 func _on_attack_timer_timeout():

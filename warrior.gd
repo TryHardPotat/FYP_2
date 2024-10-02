@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 var team : String = "player"
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var input_velocity = movement_component.velocity
 	var acceleration = movement_component.current_acceleration
 	velocity = velocity.lerp(input_velocity, acceleration)
