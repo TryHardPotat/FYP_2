@@ -8,6 +8,8 @@ extends CharacterBody2D
 
 @onready var health_bar = $CanvasGroup/HealthBar
 
+## TODO: Attack Interval for Enemies Against Player
+
 func take_damage(amount):
 	health -= amount
 	update_health()
