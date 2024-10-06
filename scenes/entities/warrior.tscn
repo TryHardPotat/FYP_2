@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="1_2m0nl"]
-[ext_resource type="Script" path="res://warrior.gd" id="1_63q3t"]
+[ext_resource type="Script" path="res://scenes/entities/warrior.gd" id="1_63q3t"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_0jxj5"]
 [ext_resource type="Script" path="res://attack_component.gd" id="4_e1mwq"]
 [ext_resource type="Script" path="res://hitbox.gd" id="4_osyxv"]
@@ -73,16 +73,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -81.0
-offset_right = 64.0
-offset_bottom = -72.0
+offset_left = -569.0
+offset_top = 299.0
+offset_right = -301.0
+offset_bottom = 317.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_tk88w")
 max_value = 10.0
 value = 10.0
-show_percentage = false
 
 [connection signal="timeout" from="DashTimer" to="MovementComponent" method="_on_dash_timer_timeout"]
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]

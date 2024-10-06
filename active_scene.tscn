@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds6444yst4pnl"]
+[gd_scene load_steps=5 format=3 uid="uid://dp2xvh7q3nltd"]
 
-[ext_resource type="PackedScene" uid="uid://byjobqop50cew" path="res://warrior.tscn" id="1_hciqs"]
-[ext_resource type="PackedScene" uid="uid://deq5qgy4siawj" path="res://rat.tscn" id="2_7kere"]
+[ext_resource type="PackedScene" uid="uid://byjobqop50cew" path="res://scenes/entities/warrior.tscn" id="1_hciqs"]
+[ext_resource type="PackedScene" uid="uid://deq5qgy4siawj" path="res://scenes/entities/rat.tscn" id="2_7kere"]
 [ext_resource type="Script" path="res://dungeon_generator.gd" id="3_onls7"]
-[ext_resource type="PackedScene" uid="uid://b4ge8rotac0uo" path="res://rooms/room_1.tscn" id="4_n084y"]
+[ext_resource type="PackedScene" uid="uid://b4ge8rotac0uo" path="res://scenes/rooms/room_1.tscn" id="4_n084y"]
 
 [node name="ActiveScene" type="Node2D"]
 
-[node name="Warrior" parent="." instance=ExtResource("1_hciqs")]
-
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="SpawnInterval" type="Timer" parent="Enemies"]
+wait_time = 5.0
+one_shot = true
 
 [node name="Rat" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
 position = Vector2(364, -1)
@@ -27,6 +29,10 @@ player = NodePath("../../Warrior")
 position = Vector2(663, 250)
 player = NodePath("../../Warrior")
 
+[node name="Warrior" parent="." instance=ExtResource("1_hciqs")]
+
 [node name="DungeonGenerator" type="Node" parent="."]
 script = ExtResource("3_onls7")
 room_scenes = Array[PackedScene]([ExtResource("4_n084y")])
+
+[connection signal="timeout" from="Enemies/SpawnInterval" to="Enemies" method="_on_spawn_interval_timeout"]
