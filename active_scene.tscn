@@ -9,10 +9,6 @@
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="SpawnInterval" type="Timer" parent="Enemies"]
-wait_time = 5.0
-one_shot = true
-
 [node name="Rat" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
 position = Vector2(364, -1)
 player = NodePath("../../Warrior")
@@ -34,5 +30,3 @@ player = NodePath("../../Warrior")
 [node name="DungeonGenerator" type="Node" parent="."]
 script = ExtResource("3_onls7")
 room_scenes = Array[PackedScene]([ExtResource("4_n084y")])
-
-[connection signal="timeout" from="Enemies/SpawnInterval" to="Enemies" method="_on_spawn_interval_timeout"]
