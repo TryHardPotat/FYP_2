@@ -17,6 +17,8 @@ func _ready():
 	# Set the player reference when the scene starts
 	set_player_reference()
 
+## TODO: Warrior is spawned on the wrong layer, enemies overlaps and obscures the player sprite and ui elements.
+
 func set_player_reference():
 	if target_scene:
 		var target_instance = target_scene.instantiate()
@@ -25,8 +27,6 @@ func set_player_reference():
 			# Don't forget to add the player to the scene if it's not already there
 			if not player.is_inside_tree():
 				add_child(player)
-			# Move the player to the top of the node hierarchy
-			move_child(player, 0)
 		else:
 			print("Target scene is not a Node2D")
 	else:
