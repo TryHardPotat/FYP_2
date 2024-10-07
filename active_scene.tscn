@@ -1,29 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://dp2xvh7q3nltd"]
 
+[ext_resource type="PackedScene" uid="uid://bwljgivopd1yw" path="res://spawner.tscn" id="1_befqd"]
 [ext_resource type="PackedScene" uid="uid://byjobqop50cew" path="res://scenes/entities/warrior.tscn" id="1_hciqs"]
-[ext_resource type="PackedScene" uid="uid://deq5qgy4siawj" path="res://scenes/entities/rat.tscn" id="2_7kere"]
 [ext_resource type="Script" path="res://dungeon_generator.gd" id="3_onls7"]
 [ext_resource type="PackedScene" uid="uid://b4ge8rotac0uo" path="res://scenes/rooms/room_1.tscn" id="4_n084y"]
 
 [node name="ActiveScene" type="Node2D"]
 
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Rat" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
-position = Vector2(364, -1)
-player = NodePath("../../Warrior")
-
-[node name="Rat2" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
-position = Vector2(685, -9)
-player = NodePath("../../Warrior")
-
-[node name="Rat3" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
-position = Vector2(268, 398)
-player = NodePath("../../Warrior")
-
-[node name="Rat4" parent="Enemies" node_paths=PackedStringArray("player") instance=ExtResource("2_7kere")]
-position = Vector2(663, 250)
-player = NodePath("../../Warrior")
+[node name="Spawner" parent="." instance=ExtResource("1_befqd")]
 
 [node name="Warrior" parent="." instance=ExtResource("1_hciqs")]
 
