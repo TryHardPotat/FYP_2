@@ -1,19 +1,17 @@
 extends Node2D
 
+@onready var timer : Timer = $Timer
+
 @export var spawn_scene : PackedScene
 @export var spawn_interval : float = 2.0
-@export var spawn_radius : float = 100.0
+@export var spawn_radius : float = 1000.0
 
 func _ready():
 	print("Spawner Started")
-	var timer = Timer.new()
-	timer.connect("timeout", Callable(self, "_on_spawn_timer,timeout"))
-	timer.set_wait_time(spawn_interval)
-	timer.set_one_shot(false)
-	add_child(timer)
-	timer.start()
+	if timer:
+		timer.start()
 
-func _on_spawn_timer_timeout():
+func _on_timer_timeout():
 	if spawn_scene:
 		var instance = spawn_scene.instantiate()
 		var spawn_position = Vector2(randf_range(-spawn_radius, spawn_radius), randf_range(-spawn_radius, spawn_radius))
