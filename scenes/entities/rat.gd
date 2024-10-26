@@ -23,7 +23,7 @@ func update_health():
 func die():
 	queue_free()  # Remove the enemy from the scene
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
