@@ -10,8 +10,7 @@
 
 [node name="Spawner" parent="." instance=ExtResource("1_befqd")]
 spawn_scene = ExtResource("2_faaqe")
-
-[node name="Warrior" parent="." instance=ExtResource("1_hciqs")]
+target_scene = ExtResource("1_hciqs")
 
 [node name="DungeonGenerator" type="Node" parent="."]
 script = ExtResource("3_onls7")

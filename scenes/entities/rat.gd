@@ -1,14 +1,15 @@
 extends CharacterBody2D
 
 @export var speed = 100
-@export var player: Node2D
+@export var player : Node2D
 @export var health : float = 10
 @export var damage : float = 2
 @export var team : String = "enemy"
 
 @onready var health_bar = $CanvasGroup/HealthBar
 
-## TODO: Attack Interval for Enemies Against Player
+func set_player(new_player):
+	player = new_player
 
 func take_damage(amount):
 	health -= amount
@@ -22,7 +23,7 @@ func update_health():
 func die():
 	queue_free()  # Remove the enemy from the scene
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if player:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed
