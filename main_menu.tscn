@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuwytf53k44sr"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_eh14r"]
+[ext_resource type="Theme" uid="uid://ba8v78j6ao6wc" path="res://assets/resources/ui/menu_theme.tres" id="1_ouu1d"]
+[ext_resource type="Texture2D" uid="uid://ha5l6hnhfdv3" path="res://assets/resources/ui/test_menu_2.jpg" id="1_tfqp0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bdysl"]
+texture = ExtResource("1_tfqp0")
+modulate_color = Color(0.605274, 0.605274, 0.605274, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eh14r")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_bdysl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = 250.0
+offset_right = -131.0
+offset_bottom = 250.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_ouu1d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Play" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_ouu1d")
+text = "Play"
+
+[node name="Options" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Credits" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://4l1m17tuqld8"]
+[gd_scene load_steps=3 format=3 uid="uid://4l1m17tuqld8"]
 
 [ext_resource type="Script" path="res://start_menu.gd" id="1_qbq8l"]
+[ext_resource type="Theme" uid="uid://ba8v78j6ao6wc" path="res://assets/resources/ui/menu_theme.tres" id="2_wvsgx"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -16,7 +17,6 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 260
 theme_override_constants/margin_right = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
@@ -24,12 +24,18 @@ layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_wvsgx")
 theme_override_font_sizes/font_size = 40
 text = "Play"
 
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_wvsgx")
+text = "Credits"
+
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme = ExtResource("2_wvsgx")
 text = "Quit
 "
 
