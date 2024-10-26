@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://byjobqop50cew"]
+[gd_scene load_steps=13 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="1_2m0nl"]
 [ext_resource type="Script" path="res://scenes/entities/warrior.gd" id="1_63q3t"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://hitbox.gd" id="4_osyxv"]
 [ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/textures/pointer.png" id="5_jql5s"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_sgln4"]
+[ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_fufyq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
 radius = 60.0
@@ -68,17 +69,15 @@ one_shot = true
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasGroup"]
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -569.0
-offset_top = 299.0
-offset_right = -301.0
-offset_bottom = 317.0
-grow_horizontal = 2
+offset_left = -934.0
+offset_top = 470.0
+offset_right = -461.0
+offset_bottom = 519.0
 grow_vertical = 0
+theme = ExtResource("8_fufyq")
 theme_override_styles/background = SubResource("StyleBoxFlat_tk88w")
 max_value = 10.0
 value = 10.0
