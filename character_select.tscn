@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6db178shbqs7"]
+[gd_scene load_steps=7 format=3 uid="uid://b6db178shbqs7"]
 
 [ext_resource type="Texture2D" uid="uid://c5pjw3yatl1xv" path="res://assets/resources/ui/temp_char_select.jpg" id="1_wv4lt"]
 [ext_resource type="Theme" uid="uid://dsqobkwl8vb1d" path="res://assets/resources/ui/char_select_theme.tres" id="2_8g5pv"]
 [ext_resource type="Theme" uid="uid://cq8b07chjn5ft" path="res://character_select_title.tres" id="3_pupnc"]
 [ext_resource type="Theme" uid="uid://wetqpq70f54a" path="res://stats_text.tres" id="3_xrucx"]
+[ext_resource type="Theme" uid="uid://bmt4gjpkujwbe" path="res://stats_label.tres" id="4_emq88"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eeqie"]
 texture = ExtResource("1_wv4lt")
@@ -60,11 +61,16 @@ layout_mode = 2
 layout_mode = 2
 text = "Scout"
 
+[node name="Stats Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_emq88")
+text = "Base Stats
+"
+
 [node name="Stats" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_xrucx")
-text = "Base Stats
-HP: 100
+text = "HP: 100
 Atk: 5
 Range: Melee"
 
@@ -86,11 +92,16 @@ layout_mode = 2
 layout_mode = 2
 text = "Slingshot"
 
+[node name="Stats Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_emq88")
+text = "Base Stats
+"
+
 [node name="Stats" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_xrucx")
-text = "Base Stats
-HP: 75
+text = "HP: 75
 Atk: 5
 Range: Ranged"
 
@@ -112,11 +123,16 @@ layout_mode = 2
 layout_mode = 2
 text = "Spellcaster"
 
+[node name="Stats Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_emq88")
+text = "Base Stats
+"
+
 [node name="Stats" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_xrucx")
-text = "Base Stats
-HP: 50
+text = "HP: 50
 Atk: 10
 Range: Ranged"
 
