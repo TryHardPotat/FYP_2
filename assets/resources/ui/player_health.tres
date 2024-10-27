@@ -2,7 +2,7 @@
 
 [ext_resource type="StyleBox" uid="uid://dvadwir8w5csn" path="res://assets/resources/ui/health_bar_bg.tres" id="1_606xg"]
 [ext_resource type="StyleBox" uid="uid://cfx63yxt3dug1" path="res://assets/resources/ui/health_bar_fill.tres" id="2_0qavd"]
-[ext_resource type="FontFile" uid="uid://bmhvm0ep03otx" path="res://assets/resources/ui/PixelifySans-VariableFont_wght.ttf" id="3_n4iby"]
+[ext_resource type="FontFile" uid="uid://bmhvm0ep03otx" path="res://assets/resources/fonts/PixelifySans-VariableFont_wght.ttf" id="3_n4iby"]
 
 [resource]
 default_font = ExtResource("3_n4iby")

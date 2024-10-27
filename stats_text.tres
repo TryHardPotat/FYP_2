@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://wetqpq70f54a"]
+
+[ext_resource type="FontFile" uid="uid://bdd6a0vy3h74w" path="res://assets/resources/fonts/VT323-Regular.ttf" id="1_d72rn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alxr8"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 20.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+default_font = ExtResource("1_d72rn")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = -5
+Label/fonts/font = ExtResource("1_d72rn")
+Label/styles/normal = SubResource("StyleBoxFlat_alxr8")
