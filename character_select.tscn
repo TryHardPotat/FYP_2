@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6db178shbqs7"]
+[gd_scene load_steps=9 format=3 uid="uid://b6db178shbqs7"]
 
+[ext_resource type="Script" path="res://character_select.gd" id="1_rwohh"]
 [ext_resource type="Texture2D" uid="uid://c5pjw3yatl1xv" path="res://assets/resources/ui/temp_char_select.jpg" id="1_wv4lt"]
 [ext_resource type="Theme" uid="uid://dsqobkwl8vb1d" path="res://assets/resources/ui/char_select_theme.tres" id="2_8g5pv"]
+[ext_resource type="PackedScene" uid="uid://byjobqop50cew" path="res://scenes/entities/warrior.tscn" id="2_112fc"]
 [ext_resource type="Theme" uid="uid://cq8b07chjn5ft" path="res://character_select_title.tres" id="3_pupnc"]
 [ext_resource type="Theme" uid="uid://wetqpq70f54a" path="res://stats_text.tres" id="3_xrucx"]
 [ext_resource type="Theme" uid="uid://bmt4gjpkujwbe" path="res://stats_label.tres" id="4_emq88"]
@@ -17,6 +19,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rwohh")
+scout = ExtResource("2_112fc")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -74,11 +78,11 @@ text = "HP: 100
 Atk: 5
 Range: Melee"
 
-[node name="Select" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer"]
+[node name="Select Scout" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer"]
 layout_mode = 2
 text = "Select"
 
-[node name="Upgrade" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer"]
+[node name="Upgrade Scout" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer"]
 layout_mode = 2
 text = "Upgrade"
 
@@ -105,11 +109,11 @@ text = "HP: 75
 Atk: 5
 Range: Ranged"
 
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer"]
+[node name="Select Slingshot" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer"]
 layout_mode = 2
 text = "Select"
 
-[node name="Upgrade" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer"]
+[node name="Upgrade Slingshot" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer"]
 layout_mode = 2
 text = "Upgrade"
 
@@ -136,10 +140,17 @@ text = "HP: 50
 Atk: 10
 Range: Ranged"
 
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer"]
+[node name="Select Spellcaster" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer"]
 layout_mode = 2
 text = "Select"
 
-[node name="Upgrade" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer"]
+[node name="Upgrade Spellcaster" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer"]
 layout_mode = 2
 text = "Upgrade"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer/Select Scout" to="." method="_on_select_scout_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer/Upgrade Scout" to="." method="_on_upgrade_scout_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer/Select Slingshot" to="." method="_on_select_slingshot_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer/Upgrade Slingshot" to="." method="_on_upgrade_slingshot_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer/Select Spellcaster" to="." method="_on_select_spellcaster_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer/Upgrade Spellcaster" to="." method="_on_upgrade_spellcaster_pressed"]

@@ -47,3 +47,7 @@ func _on_timer_timeout():
 		add_child(instance)
 	else:
 		print("No Scene to Spawn")
+
+func update_target_scene(new_scene: PackedScene):
+	target_scene = new_scene
+	set_player_reference()
