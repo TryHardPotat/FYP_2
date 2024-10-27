@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6db178shbqs7"]
+
+[ext_resource type="Texture2D" uid="uid://c5pjw3yatl1xv" path="res://assets/resources/ui/temp_char_select.jpg" id="1_wv4lt"]
+[ext_resource type="Theme" uid="uid://dsqobkwl8vb1d" path="res://assets/resources/ui/char_select_theme.tres" id="2_8g5pv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eeqie"]
+texture = ExtResource("1_wv4lt")
+modulate_color = Color(0.26905, 0.680351, 0.658096, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_eeqie")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("2_8g5pv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Character Select"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Warrior" type="PanelContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer"]
+layout_mode = 2
+text = "Warrior"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer"]
+layout_mode = 2
+text = "Select"
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 60.0
+
+[node name="Slingshot" type="PanelContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer"]
+layout_mode = 2
+text = "Slingshot"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer"]
+layout_mode = 2
+text = "Select"
+
+[node name="Spellcaster" type="PanelContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster"]
+layout_mode = 2
+text = "Magician"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer"]
+layout_mode = 2
+text = "Slingshot"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer"]
+layout_mode = 2
+text = "Select"

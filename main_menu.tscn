@@ -33,9 +33,9 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -520.0
-offset_top = 250.0
+offset_top = 200.0
 offset_right = -131.0
-offset_bottom = 250.0
+offset_bottom = 200.0
 grow_horizontal = 0
 grow_vertical = 2
 
