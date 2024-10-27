@@ -7,7 +7,7 @@
 content_margin_left = 50.0
 content_margin_top = 5.0
 content_margin_right = 50.0
-content_margin_bottom = 5.0
+content_margin_bottom = 10.0
 bg_color = Color(0.8, 0.64, 0.416, 1)
 border_width_left = 5
 border_width_top = 5
@@ -17,6 +17,7 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+anti_aliasing = false
 
 [resource]
 default_font = ExtResource("3_rtldk")

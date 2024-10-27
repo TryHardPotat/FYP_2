@@ -10,7 +10,3 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.65, 0.554233, 0.429, 1)
 corner_detail = 1
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
