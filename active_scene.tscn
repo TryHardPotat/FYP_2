@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dp2xvh7q3nltd"]
+[gd_scene load_steps=5 format=3 uid="uid://dp2xvh7q3nltd"]
 
 [ext_resource type="PackedScene" uid="uid://bwljgivopd1yw" path="res://spawner.tscn" id="1_befqd"]
-[ext_resource type="PackedScene" uid="uid://byjobqop50cew" path="res://scenes/entities/warrior.tscn" id="1_hciqs"]
 [ext_resource type="PackedScene" uid="uid://deq5qgy4siawj" path="res://scenes/entities/rat.tscn" id="2_faaqe"]
 [ext_resource type="Script" path="res://dungeon_generator.gd" id="3_onls7"]
 [ext_resource type="PackedScene" uid="uid://b4ge8rotac0uo" path="res://scenes/rooms/room_1.tscn" id="4_n084y"]
@@ -10,7 +9,6 @@
 
 [node name="Spawner" parent="." instance=ExtResource("1_befqd")]
 spawn_scene = ExtResource("2_faaqe")
-target_scene = ExtResource("1_hciqs")
 
 [node name="DungeonGenerator" type="Node" parent="."]
 script = ExtResource("3_onls7")

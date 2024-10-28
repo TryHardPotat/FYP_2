@@ -1,30 +1,23 @@
 extends Control
 
-var spawner_scene = preload("res://spawner.tscn")
-var spawner_node = spawner_scene.instantiate()
-
-@export var scout : PackedScene
-@export var slingshot : PackedScene
-@export var spellcaster : PackedScene
-
-## Character Select Does Not Work
+## TODO: Upgrade Screen
 
 func _on_select_scout_pressed():
-	spawner_node.target_scene = scout ##
+	Global.selected_character = Global.character_scenes["Scout"]
 	start_game()
 
 func _on_upgrade_scout_pressed():
 	pass # Replace with function body.
 
 func _on_select_slingshot_pressed():
-	spawner_node.target_scene = slingshot ##
+	Global.selected_character = Global.character_scenes["Slingshot"]
 	start_game()
 
 func _on_upgrade_slingshot_pressed():
 	pass # Replace with function body.
 
 func _on_select_spellcaster_pressed():
-	spawner_node.target_scene = spellcaster ##
+	Global.selected_character = Global.character_scenes["Spellcaster"]
 	start_game()
 
 func _on_upgrade_spellcaster_pressed():

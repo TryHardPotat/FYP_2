@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://byjobqop50cew"]
 
-[ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="1_2m0nl"]
-[ext_resource type="Script" path="res://scenes/entities/warrior.gd" id="1_63q3t"]
-[ext_resource type="Script" path="res://movement_component.gd" id="3_0jxj5"]
-[ext_resource type="Script" path="res://attack_component.gd" id="4_e1mwq"]
-[ext_resource type="Script" path="res://hitbox.gd" id="4_osyxv"]
-[ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/textures/pointer.png" id="5_jql5s"]
-[ext_resource type="Script" path="res://hurtbox.gd" id="6_sgln4"]
-[ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_fufyq"]
+[ext_resource type="Script" path="res://scenes/entities/scout.gd" id="1_gmnaq"]
+[ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_btdtk"]
+[ext_resource type="Script" path="res://movement_component.gd" id="3_dajo0"]
+[ext_resource type="Script" path="res://hitbox.gd" id="4_kngsj"]
+[ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/textures/pointer.png" id="5_hj4jv"]
+[ext_resource type="Script" path="res://hurtbox.gd" id="6_wim8b"]
+[ext_resource type="Script" path="res://attack_component.gd" id="7_1y3nw"]
+[ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_c2exs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
 radius = 60.0
@@ -21,21 +21,22 @@ size = Vector2(128, 128)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk88w"]
 bg_color = Color(1, 0, 0, 1)
 
-[node name="Warrior" type="CharacterBody2D"]
+[node name="Scout" type="CharacterBody2D"]
 motion_mode = 1
 up_direction = Vector2(-1, 0)
-script = ExtResource("1_63q3t")
+script = ExtResource("1_gmnaq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_2m0nl")
+modulate = Color(0, 1, 1, 1)
+texture = ExtResource("2_btdtk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7knae")
 
 [node name="MovementComponent" type="Node" parent="."]
-script = ExtResource("3_0jxj5")
+script = ExtResource("3_dajo0")
 
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -43,7 +44,7 @@ one_shot = true
 
 [node name="Hitbox" type="Area2D" parent="."]
 monitoring = false
-script = ExtResource("4_osyxv")
+script = ExtResource("4_kngsj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(120, 0)
@@ -52,16 +53,16 @@ shape = SubResource("CircleShape2D_nla3r")
 [node name="Sprite2D" type="Sprite2D" parent="Hitbox"]
 position = Vector2(121, -4)
 scale = Vector2(0.337438, 0.337438)
-texture = ExtResource("5_jql5s")
+texture = ExtResource("5_hj4jv")
 
 [node name="Hurtbox" type="Area2D" parent="."]
-script = ExtResource("6_sgln4")
+script = ExtResource("6_wim8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_j3ln6")
 
 [node name="AttackComponent" type="Node" parent="."]
-script = ExtResource("4_e1mwq")
+script = ExtResource("7_1y3nw")
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
@@ -77,7 +78,7 @@ offset_top = 470.0
 offset_right = -461.0
 offset_bottom = 519.0
 grow_vertical = 0
-theme = ExtResource("8_fufyq")
+theme = ExtResource("8_c2exs")
 theme_override_styles/background = SubResource("StyleBoxFlat_tk88w")
 max_value = 10.0
 value = 10.0

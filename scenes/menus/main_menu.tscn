@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://cuwytf53k44sr"]
 
-[ext_resource type="Script" path="res://main_menu.gd" id="1_eh14r"]
-[ext_resource type="Theme" uid="uid://ba8v78j6ao6wc" path="res://assets/resources/ui/menu_theme.tres" id="1_ouu1d"]
-[ext_resource type="Texture2D" uid="uid://ha5l6hnhfdv3" path="res://assets/resources/ui/test_menu_2.jpg" id="1_tfqp0"]
+[ext_resource type="Script" path="res://scenes/menus/main_menu.gd" id="1_g2uwq"]
+[ext_resource type="Texture2D" uid="uid://ha5l6hnhfdv3" path="res://assets/resources/ui/test_menu_2.jpg" id="2_bd51a"]
+[ext_resource type="Theme" uid="uid://ba8v78j6ao6wc" path="res://assets/resources/ui/menu_theme.tres" id="3_lww6p"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bdysl"]
-texture = ExtResource("1_tfqp0")
+texture = ExtResource("2_bd51a")
 modulate_color = Color(0.605274, 0.605274, 0.605274, 1)
 
 [node name="Control" type="Control"]
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_eh14r")
+script = ExtResource("1_g2uwq")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -44,7 +44,7 @@ layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
-theme = ExtResource("1_ouu1d")
+theme = ExtResource("3_lww6p")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer/PanelContainer"]
 layout_mode = 2
@@ -52,7 +52,7 @@ theme_override_constants/separation = 30
 
 [node name="Play" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("1_ouu1d")
+theme = ExtResource("3_lww6p")
 text = "Play"
 
 [node name="Options" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/VBoxContainer"]

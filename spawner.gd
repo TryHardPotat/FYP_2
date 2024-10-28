@@ -3,7 +3,7 @@ extends Node2D
 @onready var timer : Timer = $Timer
 
 @export var spawn_scene : PackedScene
-@export var target_scene : PackedScene
+@export var target_scene : PackedScene = Global.selected_character
 @export var spawn_interval : float = 2.0
 @export var spawn_radius : float = 1000.0
 
