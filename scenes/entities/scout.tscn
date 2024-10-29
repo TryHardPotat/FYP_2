@@ -205,7 +205,7 @@ texture_filter = 1
 position = Vector2(-904, -487)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_77eyb")
-frame_progress = 0.557497
+frame_progress = 0.53909
 script = ExtResource("10_4g8np")
 
 [node name="Gold" type="Label" parent="CanvasGroup"]
