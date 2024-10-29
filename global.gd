@@ -7,3 +7,8 @@ var character_scenes = {
 }
 
 var selected_character: PackedScene = null
+
+var dungeon_width : int = 5
+var dungeon_height : int = 5
+
+var gold : int = 0

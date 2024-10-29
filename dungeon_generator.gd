@@ -3,8 +3,8 @@ extends Node
 var room_tiles = 32
 var pixel = 32
 @export var room_scenes : Array[PackedScene] # Holds room types
-@export var dungeon_width : int = 5
-@export var dungeon_height : int = 5
+@export var dungeon_width : int = Global.dungeon_width
+@export var dungeon_height : int = Global.dungeon_height
 @export var room_size : Vector2 = Vector2(room_tiles * pixel, room_tiles * pixel)
 var rooms = []
 
