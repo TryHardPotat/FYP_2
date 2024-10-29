@@ -80,8 +80,6 @@ offset_bottom = 519.0
 grow_vertical = 0
 theme = ExtResource("8_hcjdy")
 theme_override_styles/background = SubResource("StyleBoxFlat_tk88w")
-max_value = 10.0
-value = 10.0
 
 [connection signal="timeout" from="DashTimer" to="MovementComponent" method="_on_dash_timer_timeout"]
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]

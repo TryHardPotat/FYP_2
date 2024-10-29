@@ -197,8 +197,7 @@ offset_bottom = 519.0
 grow_vertical = 0
 theme = ExtResource("8_c2exs")
 theme_override_styles/background = SubResource("StyleBoxFlat_tk88w")
-max_value = 10.0
-value = 10.0
+value = 100.0
 
 [node name="UI_Gold" type="AnimatedSprite2D" parent="CanvasGroup"]
 texture_filter = 1

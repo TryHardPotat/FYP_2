@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed = 100
 @export var player : Node2D
 @export var health : float = 10
-@export var damage : float = 2
+@export var damage : float = 5
 @export var team : String = "enemy"
 
 @onready var health_bar = $CanvasGroup/HealthBar
