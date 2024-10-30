@@ -7,9 +7,11 @@
 
 [node name="ActiveScene" type="Node2D"]
 
-[node name="Spawner" parent="." instance=ExtResource("1_befqd")]
-spawn_scene = ExtResource("2_faaqe")
-
 [node name="DungeonGenerator" type="Node" parent="."]
 script = ExtResource("3_onls7")
 room_scenes = Array[PackedScene]([ExtResource("4_n084y")])
+
+[node name="Spawner" parent="." instance=ExtResource("1_befqd")]
+spawn_scene = ExtResource("2_faaqe")
+
+[node name="Enemies" type="Node2D" parent="."]

@@ -1,12 +1,11 @@
 extends Node2D
 
 @onready var timer : Timer = $Timer
-
-@export var spawn_scene : PackedScene
-@export var target_scene : PackedScene = Global.selected_character
+@onready var enemy_container = get_tree().get_root().get_node("ActiveScene/Enemies")
+@export var spawn_scene : PackedScene ## Enemy Scene
+@export var target_scene : PackedScene = Global.selected_character ## Player Scene
 @export var spawn_interval : float = 2.0
 @export var spawn_radius : float = 1000.0
-
 var player : Node2D
 
 func _ready():
@@ -14,17 +13,14 @@ func _ready():
 	if timer:
 		timer.start()
 	
-	# Set the player reference when the scene starts
 	set_player_reference()
-
-## TODO: Warrior is spawned on the wrong layer, enemies overlaps and obscures the player sprite and ui elements.
 
 func set_player_reference():
 	if target_scene:
 		var target_instance = target_scene.instantiate()
+		target_instance.position = $"../DungeonGenerator".get_dungeon_center()
 		if target_instance is Node2D:
 			player = target_instance
-			# Don't forget to add the player to the scene if it's not already there
 			if not player.is_inside_tree():
 				add_child(player)
 		else:
@@ -33,18 +29,31 @@ func set_player_reference():
 		print("No target scene set")
 
 func _on_timer_timeout():
-	if spawn_scene:
+	if spawn_scene and player and enemy_container:
 		var instance = spawn_scene.instantiate()
 		
-		# Pass the player reference to the spawned instance if it has a 'player' property
 		if instance.has_method("set_player"):
 			instance.set_player(player)
 		elif instance.has_property("player"):
 			instance.player = player
 		
-		var spawn_position = Vector2(randf_range(-spawn_radius, spawn_radius), randf_range(-spawn_radius, spawn_radius))
-		instance.position = spawn_position
-		add_child(instance)
+		# Generate a random angle
+		var angle = randf() * TAU  # TAU is 2*PI, giving us a full circle
+		
+		# Generate a random distance between min and max spawn radius
+		var min_spawn_radius = spawn_radius * 0.5  # You can adjust this multiplier
+		var spawn_distance = randf_range(min_spawn_radius, spawn_radius)
+		
+		# Calculate spawn position relative to player
+		var spawn_offset = Vector2(
+			cos(angle) * spawn_distance,
+			sin(angle) * spawn_distance
+		)
+		
+		# Set final position relative to player's position
+		instance.position = player.position + spawn_offset
+		
+		enemy_container.add_child(instance)
 	else:
 		print("No Scene to Spawn")
 

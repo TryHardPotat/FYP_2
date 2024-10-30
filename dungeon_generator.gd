@@ -17,6 +17,17 @@ func place_room(x : int, y : int) -> Node2D:
 	add_child(room_instance)
 	return room_instance
 
+func get_dungeon_center() -> Vector2:
+	var dungeon_total_width = dungeon_width * room_size.x
+	var dungeon_total_height = dungeon_height * room_size.y
+	
+	var center = Vector2(
+		dungeon_total_width / 2,
+		dungeon_total_height / 2
+	)
+	
+	return center
+
 func generate_dungeon():
 	rooms = []
 	for x in range(dungeon_width):
