@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtwnt8jxx8j8f"]
+[gd_scene load_steps=33 format=3 uid="uid://dtwnt8jxx8j8f"]
 
 [ext_resource type="Script" path="res://scenes/entities/slingshot.gd" id="1_evshs"]
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_ndbl3"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_en0xj"]
 [ext_resource type="Script" path="res://attack_component.gd" id="7_wf1i1"]
 [ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_hcjdy"]
+[ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="9_ecc04"]
+[ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="10_68rka"]
+[ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://gold_ui.tres" id="11_crbk7"]
+[ext_resource type="Script" path="res://scenes/entities/gold_text.gd" id="12_k6g16"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
 radius = 60.0
@@ -18,8 +22,121 @@ radius = 60.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ln6"]
 size = Vector2(128, 128)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk88w"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8ih3"]
 bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lt0m"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4jqf"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnhjq"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh8yf"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24yqf"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw70d"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txpku"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc5nx"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tcdw"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkdvf"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_871qd"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0at1"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3tea"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh6n7"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph6wn"]
+atlas = ExtResource("9_ecc04")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yisea"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lt0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4jqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnhjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh8yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24yqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw70d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txpku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc5nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tcdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkdvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_871qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0at1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3tea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sh6n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph6wn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="Slingshot" type="CharacterBody2D"]
 motion_mode = 1
@@ -79,7 +196,25 @@ offset_right = -461.0
 offset_bottom = 519.0
 grow_vertical = 0
 theme = ExtResource("8_hcjdy")
-theme_override_styles/background = SubResource("StyleBoxFlat_tk88w")
+theme_override_styles/background = SubResource("StyleBoxFlat_n8ih3")
+value = 100.0
+
+[node name="UI_Gold" type="AnimatedSprite2D" parent="CanvasGroup"]
+texture_filter = 1
+position = Vector2(-904, -487)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_yisea")
+script = ExtResource("10_68rka")
+
+[node name="Gold" type="Label" parent="CanvasGroup"]
+texture_filter = 5
+offset_left = -847.0
+offset_top = -507.0
+offset_right = -613.0
+offset_bottom = -458.0
+theme = ExtResource("11_crbk7")
+text = "0123456789"
+script = ExtResource("12_k6g16")
 
 [connection signal="timeout" from="DashTimer" to="MovementComponent" method="_on_dash_timer_timeout"]
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
