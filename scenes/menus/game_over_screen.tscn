@@ -1,7 +1,125 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvj6gipfggqgd"]
+[gd_scene load_steps=24 format=3 uid="uid://cvj6gipfggqgd"]
 
 [ext_resource type="Script" path="res://scenes/menus/game_over_screen.gd" id="1_vsn5m"]
 [ext_resource type="Theme" uid="uid://dsqobkwl8vb1d" path="res://assets/resources/ui/char_select_theme.tres" id="2_fwgqv"]
+[ext_resource type="Theme" uid="uid://cq8b07chjn5ft" path="res://assets/resources/ui/character_select_title.tres" id="3_7g5e2"]
+[ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="4_t1x0o"]
+[ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="5_inwkp"]
+[ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://gold_ui.tres" id="6_nadu3"]
+[ext_resource type="Script" path="res://scenes/menus/total_gold.gd" id="7_s6xsa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lt0m"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4jqf"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnhjq"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh8yf"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24yqf"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw70d"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txpku"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc5nx"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tcdw"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkdvf"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_871qd"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0at1"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3tea"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh6n7"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ph6wn"]
+atlas = ExtResource("4_t1x0o")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_igtyh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lt0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4jqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnhjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh8yf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24yqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw70d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txpku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc5nx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tcdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkdvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_871qd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0at1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3tea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sh6n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ph6wn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -36,7 +154,9 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_7g5e2")
 text = "Game Over"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -48,6 +168,25 @@ text = "Retry"
 [node name="Main Menu" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
+
+[node name="CanvasGroup" type="CanvasGroup" parent="CenterContainer"]
+
+[node name="UI_Gold" type="AnimatedSprite2D" parent="CenterContainer/CanvasGroup"]
+texture_filter = 1
+position = Vector2(104, 92)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_igtyh")
+script = ExtResource("5_inwkp")
+
+[node name="Gold" type="Label" parent="CenterContainer/CanvasGroup"]
+texture_filter = 5
+offset_left = 161.0
+offset_top = 72.0
+offset_right = 395.0
+offset_bottom = 121.0
+theme = ExtResource("6_nadu3")
+text = "0123456789"
+script = ExtResource("7_s6xsa")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

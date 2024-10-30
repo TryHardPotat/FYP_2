@@ -11,4 +11,5 @@ var dungeon_width : int = 5
 var dungeon_height : int = 5
 
 ## Player Gold
+var current_run_gold : int = 0
 var gold : int = 0

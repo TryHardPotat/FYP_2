@@ -1,82 +1,97 @@
-# global.gd
 extends Node
 
 var selected_character = ""
-
 var scout_base_stats = {
-	"health": 100
+	"health": 100,
+	"gold": 0
 }
-
 var slingshot_base_stats = {
-	"health": 75
+	"health": 75,
+	"gold": 0
 }
-
 var spellcaster_base_stats = {
-	"health": 50
+	"health": 50,
+	"gold": 0
 }
 
-# This will hold the current character's stats
+# Main dictionary to store all characters' stats
+var all_characters_stats = {
+	"Scout": {},
+	"Slingshot": {},
+	"Spellcaster": {}
+}
+
+# Current character's stats reference
 var stats = {}
 
-# Call this when selecting a character
+func _ready():
+	# Load all saved data when the game starts
+	load_stats()
+
 func select_character(character_name: String):
 	selected_character = character_name
 	
-	# Use match instead of if/elif for cleaner syntax
-	match character_name:
-		"Scout":
-			stats = scout_base_stats.duplicate()  # Use duplicate() to avoid modifying base stats
-		"Slingshot":
-			stats = slingshot_base_stats.duplicate()
-		"Spellcaster":
-			stats = spellcaster_base_stats.duplicate()
+	# If this character hasn't been initialized yet, use base stats
+	if all_characters_stats[character_name].is_empty():
+		match character_name:
+			"Scout":
+				all_characters_stats[character_name] = scout_base_stats.duplicate()
+			"Slingshot":
+				all_characters_stats[character_name] = slingshot_base_stats.duplicate()
+			"Spellcaster":
+				all_characters_stats[character_name] = spellcaster_base_stats.duplicate()
+	
+	# Point stats reference to the correct character's stats
+	stats = all_characters_stats[character_name]
 	
 	print("Selected character: ", character_name)
 	print("Initial stats: ", stats)
-	
-	# Load any saved stats for this character
-	load_stats()
 
 func save_stats():
-	var config = ConfigFile.new()
+	# Create the save dictionary
+	var save_data = {
+		"all_characters_stats": all_characters_stats,
+		"selected_character": selected_character
+	}
 	
-	# Save stats under the character's name section
-	for stat_name in stats:
-		config.set_value(selected_character, stat_name, stats[stat_name])
+	# Save to file
+	var save_file = FileAccess.open("user://game_save.json", FileAccess.WRITE)
+	var json_string = JSON.stringify(save_data)
+	save_file.store_line(json_string)
+	save_file.close()
 	
-	# Save the file
-	var error = config.save("user://character_stats.save")
-	if error != OK:
-		print("Error saving stats: ", error)
-		return false
-	print("Stats Saved for ", selected_character, ": ", stats)
+	print("All stats saved: ", save_data)
 	return true
 
 func load_stats():
-	var config = ConfigFile.new()
-	
-	# Check if the save file exists
-	if not FileAccess.file_exists("user://character_stats.save"):
-		print("Save file not found - Using base stats")
+	if not FileAccess.file_exists("user://game_save.json"):
+		print("No save file found - Using base stats")
 		return false
 	
-	# Load the file
-	var error = config.load("user://character_stats.save")
-	if error != OK:
-		print("Error loading stats: ", error)
-		return false
+	var save_file = FileAccess.open("user://game_save.json", FileAccess.READ)
+	var json_string = save_file.get_line()
+	var save_data = JSON.parse_string(json_string)
+	save_file.close()
 	
-	# Load stats from the character's section
-	for stat_name in stats:
-		if config.has_section_key(selected_character, stat_name):
-			stats[stat_name] = config.get_value(selected_character, stat_name)
+	if save_data:
+		all_characters_stats = save_data.all_characters_stats
+		selected_character = save_data.selected_character
+		
+		# If we have a selected character, update the stats reference
+		if selected_character != "":
+			stats = all_characters_stats[selected_character]
+		
+		print("All stats loaded: ", all_characters_stats)
+		print("Current character: ", selected_character)
+		return true
 	
-	print("Stats Loaded for ", selected_character, ": ", stats)
-	return true
+	return false
 
 func update_stat(stat_name: String, value: int):
 	if stats.has(stat_name):
 		stats[stat_name] = value
+		# Since stats is a reference, all_characters_stats is automatically updated
 		print("Stat Updated for ", selected_character, " - ", stat_name, " is now: ", value)
+		save_stats()  # Auto-save whenever a stat is updated
 		return true
 	return false

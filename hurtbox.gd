@@ -15,6 +15,10 @@ func take_damage(amount):
 	if health <= 0:
 		print("Character Died")
 		get_tree().paused = true
+		Global.gold += Global.current_run_gold
+		print(Global.gold)
+		SaveManager.update_stat("gold", Global.gold)
+		SaveManager.save_stats()
 		get_tree().change_scene_to_file("res://scenes/menus/game_over_screen.tscn")
 
 func update_health():

@@ -21,7 +21,7 @@ func update_health():
 	health_bar.value = health
 
 func die():
-	Global.gold += 1
+	Global.current_run_gold += 1
 	queue_free()  # Remove the enemy from the scene
 
 func _physics_process(_delta):
