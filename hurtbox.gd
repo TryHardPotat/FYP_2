@@ -10,8 +10,6 @@ func _ready():
 
 func take_damage(amount):
 	health -= amount
-	# Update both local health display and saved stats
-	SaveManager.update_stat("health", health)
 	update_health()
 	
 	if health <= 0:
