@@ -1,10 +1,13 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dsqobkwl8vb1d"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dsqobkwl8vb1d"]
 
 [ext_resource type="StyleBox" uid="uid://dg8mcgxk4sva1" path="res://assets/resources/ui/buttom_theme.tres" id="1_7fqv0"]
 [ext_resource type="FontFile" uid="uid://bdd6a0vy3h74w" path="res://assets/resources/fonts/VT323-Regular.ttf" id="1_o0x2u"]
 [ext_resource type="FontFile" uid="uid://5341uvjo8r5g" path="res://assets/resources/fonts/upheavtt.ttf" id="3_d0onh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hieb5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rvcuu"]
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stvdr"]
 content_margin_left = 50.0
@@ -25,5 +28,6 @@ Button/colors/font_hover_color = Color(1, 1, 1, 1)
 Button/fonts/font = ExtResource("1_o0x2u")
 Button/styles/hover = SubResource("StyleBoxFlat_hieb5")
 Button/styles/normal = ExtResource("1_7fqv0")
-Panel/styles/panel = null
+Label/colors/font_color = Color(1, 1, 1, 1)
+Panel/styles/panel = SubResource("StyleBoxFlat_rvcuu")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_stvdr")

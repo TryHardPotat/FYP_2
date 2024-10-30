@@ -4,13 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="1_y8omv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5pla"]
-radius = 60.0
+radius = 30.0167
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vbvp"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu3e2"]
-size = Vector2(128, 128)
+size = Vector2(64, 64)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7koix"]
 bg_color = Color(1, 0, 0, 1)
@@ -21,6 +21,7 @@ script = ExtResource("1_12t34")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_y8omv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
