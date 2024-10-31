@@ -158,14 +158,11 @@ theme = ExtResource("3_7g5e2")
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Retry" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Retry" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Retry"
 
-[node name="Main Menu" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="Main Menu" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
 
@@ -188,5 +185,5 @@ theme = ExtResource("6_nadu3")
 text = "0123456789"
 script = ExtResource("7_s6xsa")
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Retry" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
