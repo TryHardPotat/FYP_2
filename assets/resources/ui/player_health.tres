@@ -8,6 +8,6 @@
 default_font = ExtResource("3_n4iby")
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 5
-ProgressBar/font_sizes/font_size = 40
+ProgressBar/font_sizes/font_size = 20
 ProgressBar/styles/background = ExtResource("1_606xg")
 ProgressBar/styles/fill = ExtResource("2_0qavd")

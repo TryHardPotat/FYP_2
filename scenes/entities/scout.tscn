@@ -1,10 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://byjobqop50cew"]
+[gd_scene load_steps=32 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Script" path="res://scenes/entities/scout.gd" id="1_gmnaq"]
-[ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_btdtk"]
+[ext_resource type="Texture2D" uid="uid://balwn7xj8mqe0" path="res://assets/textures/scout.png" id="2_ssymy"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_dajo0"]
 [ext_resource type="Script" path="res://hitbox.gd" id="4_kngsj"]
-[ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/textures/pointer.png" id="5_hj4jv"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_wim8b"]
 [ext_resource type="Script" path="res://attack_component.gd" id="7_1y3nw"]
 [ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_c2exs"]
@@ -13,14 +12,16 @@
 [ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="10_4g8np"]
 [ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://gold_ui.tres" id="11_ymirx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
-radius = 30.0167
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18607"]
+radius = 5.0
+height = 28.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nla3r"]
-radius = 60.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mnjl8"]
+radius = 16.0
+height = 62.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ln6"]
-size = Vector2(66, 128)
+size = Vector2(17, 30)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk88w"]
 bg_color = Color(1, 0, 0, 1)
@@ -144,14 +145,18 @@ up_direction = Vector2(-1, 0)
 script = ExtResource("1_gmnaq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.25, 2.25)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 1, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_btdtk")
+texture_filter = 1
+position = Vector2(19, 0)
+texture = ExtResource("2_ssymy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_7knae")
+position = Vector2(1, 14)
+rotation = 1.5708
+scale = Vector2(1, 0.5)
+shape = SubResource("CapsuleShape2D_18607")
 
 [node name="MovementComponent" type="Node" parent="."]
 script = ExtResource("3_dajo0")
@@ -165,18 +170,14 @@ monitoring = false
 script = ExtResource("4_kngsj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(120, 0)
-shape = SubResource("CircleShape2D_nla3r")
-
-[node name="Sprite2D" type="Sprite2D" parent="Hitbox"]
-position = Vector2(121, -4)
-scale = Vector2(0.337438, 0.337438)
-texture = ExtResource("5_hj4jv")
+position = Vector2(31, 0)
+shape = SubResource("CapsuleShape2D_mnjl8")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("6_wim8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_j3ln6")
 
 [node name="AttackComponent" type="Node" parent="."]
@@ -191,10 +192,10 @@ one_shot = true
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -934.0
-offset_top = 470.0
-offset_right = -461.0
-offset_bottom = 519.0
+offset_left = -414.0
+offset_top = 203.0
+offset_right = -210.0
+offset_bottom = 228.0
 grow_vertical = 0
 theme = ExtResource("8_c2exs")
 theme_override_styles/background = SubResource("StyleBoxFlat_tk88w")
@@ -202,18 +203,18 @@ value = 100.0
 
 [node name="UI_Gold" type="AnimatedSprite2D" parent="CanvasGroup"]
 texture_filter = 1
-position = Vector2(-904, -487)
-scale = Vector2(5, 5)
+position = Vector2(-397, -210)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_77eyb")
 frame_progress = 0.53909
 script = ExtResource("10_4g8np")
 
 [node name="Gold" type="Label" parent="CanvasGroup"]
 texture_filter = 5
-offset_left = -847.0
-offset_top = -507.0
-offset_right = -613.0
-offset_bottom = -458.0
+offset_left = -375.0
+offset_top = -221.0
+offset_right = -228.0
+offset_bottom = -198.0
 theme = ExtResource("11_ymirx")
 text = "0123456789"
 script = ExtResource("9_w5dh8")
