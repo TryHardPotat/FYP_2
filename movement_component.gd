@@ -3,8 +3,8 @@ class_name MovementComponent
 
 @onready var dash_timer : Timer = $"../DashTimer"
 
-@export var speed = 500.0
-@export var base_acceleration = 0.15 # Ranges from 0 - 1
+@export var speed = 250.0
+@export var base_acceleration = 0.1 # Ranges from 0 - 1
 var current_acceleration = base_acceleration
 
 var input_direction = Vector2.ZERO
@@ -29,11 +29,11 @@ func movement_handler(_delta):
 func input_dash():
 	if Input.is_action_just_pressed("dash"):
 		dashing = true
-		speed = 1500
+		speed = 500
 		current_acceleration = 1
 		dash_timer.start()
 
 func _on_dash_timer_timeout():
 	dashing = false
-	speed = 500
+	speed = 250
 	current_acceleration = base_acceleration
