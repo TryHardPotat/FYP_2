@@ -182,6 +182,7 @@ offset_top = 72.0
 offset_right = 395.0
 offset_bottom = 121.0
 theme = ExtResource("6_nadu3")
+theme_override_font_sizes/font_size = 40
 text = "0123456789"
 script = ExtResource("7_s6xsa")
 

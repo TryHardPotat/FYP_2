@@ -1,9 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://byjobqop50cew"]
+[gd_scene load_steps=34 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Script" path="res://scenes/entities/scout.gd" id="1_gmnaq"]
 [ext_resource type="Texture2D" uid="uid://balwn7xj8mqe0" path="res://assets/textures/scout.png" id="2_ssymy"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_dajo0"]
 [ext_resource type="Script" path="res://hitbox.gd" id="4_kngsj"]
+[ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/textures/pointer.png" id="5_o4nkb"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_wim8b"]
 [ext_resource type="Script" path="res://attack_component.gd" id="7_1y3nw"]
 [ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_c2exs"]
@@ -183,6 +184,11 @@ script = ExtResource("4_kngsj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(31, 0)
 shape = SubResource("CapsuleShape2D_mnjl8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hitbox"]
+position = Vector2(35, -2)
+scale = Vector2(0.0917969, 0.157943)
+texture = ExtResource("5_o4nkb")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("6_wim8b")
