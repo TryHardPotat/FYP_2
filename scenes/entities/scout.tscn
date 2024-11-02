@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://byjobqop50cew"]
+[gd_scene load_steps=33 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Script" path="res://scenes/entities/scout.gd" id="1_gmnaq"]
 [ext_resource type="Texture2D" uid="uid://balwn7xj8mqe0" path="res://assets/textures/scout.png" id="2_ssymy"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="9_f2t5o"]
 [ext_resource type="Script" path="res://scenes/entities/gold_text.gd" id="9_w5dh8"]
 [ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="10_4g8np"]
-[ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://gold_ui.tres" id="11_ymirx"]
+[ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://assets/resources/ui/gold_ui.tres" id="11_ymirx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vxv44"]
 animations = [{
@@ -34,9 +34,6 @@ height = 62.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ln6"]
 size = Vector2(16, 30)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tk88w"]
-bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lt0m"]
 atlas = ExtResource("9_f2t5o")
@@ -205,16 +202,16 @@ one_shot = true
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasGroup"]
+texture_filter = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -414.0
-offset_top = 203.0
-offset_right = -210.0
-offset_bottom = 228.0
+offset_left = -415.0
+offset_top = 204.0
+offset_right = -211.0
+offset_bottom = 229.0
 grow_vertical = 0
 theme = ExtResource("8_c2exs")
-theme_override_styles/background = SubResource("StyleBoxFlat_tk88w")
 value = 100.0
 
 [node name="UI_Gold" type="AnimatedSprite2D" parent="CanvasGroup"]

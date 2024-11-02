@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/entities/rat.gd" id="1_12t34"]
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="1_y8omv"]
+[ext_resource type="Theme" uid="uid://bjp138hr58qyf" path="res://assets/resources/ui/enemy_healthbar.tres" id="3_s0guf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c5pla"]
 radius = 30.0167
@@ -12,10 +13,8 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu3e2"]
 size = Vector2(64, 64)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7koix"]
-bg_color = Color(1, 0, 0, 1)
-
 [node name="Rat" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 motion_mode = 1
 script = ExtResource("1_12t34")
 
@@ -46,13 +45,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -81.0
-offset_right = 64.0
-offset_bottom = -72.0
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 23.0
+offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_styles/background = SubResource("StyleBoxFlat_7koix")
+scale = Vector2(1.16, 1)
+theme = ExtResource("3_s0guf")
 max_value = 10.0
 value = 10.0
 show_percentage = false

@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://cq8b07chjn5ft" path="res://assets/resources/ui/character_select_title.tres" id="3_7g5e2"]
 [ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="4_t1x0o"]
 [ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="5_inwkp"]
-[ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://gold_ui.tres" id="6_nadu3"]
+[ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://assets/resources/ui/gold_ui.tres" id="6_nadu3"]
 [ext_resource type="Script" path="res://scenes/menus/total_gold.gd" id="7_s6xsa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lt0m"]
