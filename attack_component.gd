@@ -3,38 +3,21 @@ class_name AttackComponent
 
 @onready var hitbox = $"../Hitbox"
 @onready var attack_timer = $"../AttackTimer"
-
+@onready var projectile_guide = $"../ProjectileGuide"
+@onready var projectile_container = get_tree().get_root().get_node("ActiveScene/Projectiles")
 @export var damage = 5
-
+@export var pebble_scene: PackedScene
 var is_attacking = false
 
-## TODO: Implement attack cooldown.
 func input_attack():
-	if Input.is_action_pressed("primary_attack"):
-		if !is_attacking:
-			attack()
-		elif attack_timer.is_stopped():
-			attack()
-	elif Input.is_action_just_released("primary_attack"):
-		stop_attack()
+	if Input.is_action_just_pressed("primary_attack"):  # Changed to just_pressed to fire one at a time
+		attack()
 
 func attack():
-	if hitbox:
-		hitbox.monitoring = true
-	if attack_timer:
-		attack_timer.start()
-	is_attacking = true
+	var pebble = pebble_scene.instantiate()
+	pebble.spawnPos = projectile_guide.global_position
+	pebble.dir = projectile_guide.rotation
+	projectile_container.add_child(pebble)
 
-func stop_attack():
-	is_attacking = false
-	if hitbox:
-		hitbox.monitoring = false
-	if attack_timer:
-		attack_timer.stop()
-
-func _process(_delta):
+func _process(delta):
 	input_attack()
-
-func _on_attack_timer_timeout():
-	if hitbox:
-		hitbox.monitoring = false

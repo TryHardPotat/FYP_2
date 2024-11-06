@@ -3,20 +3,18 @@
 [ext_resource type="Script" path="res://scenes/entities/slingshot.gd" id="1_evshs"]
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_ndbl3"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_31b8o"]
-[ext_resource type="Script" path="res://hitbox.gd" id="4_0v7kc"]
-[ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/textures/pointer.png" id="5_6wirv"]
+[ext_resource type="Texture2D" uid="uid://2ldrxq3nb1ui" path="res://assets/textures/onijiri.png" id="5_pwafo"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_en0xj"]
+[ext_resource type="PackedScene" uid="uid://b6i4y5fc33xo3" path="res://scenes/entities/pebble.tscn" id="6_k4x4j"]
 [ext_resource type="Script" path="res://attack_component.gd" id="7_wf1i1"]
 [ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_hcjdy"]
 [ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="9_ecc04"]
 [ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="10_68rka"]
 [ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://assets/resources/ui/gold_ui.tres" id="11_crbk7"]
+[ext_resource type="Script" path="res://scenes/entities/projectile_guide.gd" id="11_ddmlq"]
 [ext_resource type="Script" path="res://scenes/entities/gold_text.gd" id="12_k6g16"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
-radius = 60.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nla3r"]
 radius = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ln6"]
@@ -139,6 +137,7 @@ animations = [{
 }]
 
 [node name="Slingshot" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 motion_mode = 1
 up_direction = Vector2(-1, 0)
 script = ExtResource("1_evshs")
@@ -159,19 +158,6 @@ script = ExtResource("3_31b8o")
 wait_time = 0.2
 one_shot = true
 
-[node name="Hitbox" type="Area2D" parent="."]
-monitoring = false
-script = ExtResource("4_0v7kc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(120, 0)
-shape = SubResource("CircleShape2D_nla3r")
-
-[node name="Sprite2D" type="Sprite2D" parent="Hitbox"]
-position = Vector2(121, -4)
-scale = Vector2(0.337438, 0.337438)
-texture = ExtResource("5_6wirv")
-
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("6_en0xj")
 
@@ -180,6 +166,7 @@ shape = SubResource("RectangleShape2D_j3ln6")
 
 [node name="AttackComponent" type="Node" parent="."]
 script = ExtResource("7_wf1i1")
+pebble_scene = ExtResource("6_k4x4j")
 
 [node name="AttackTimer" type="Timer" parent="."]
 one_shot = true
@@ -216,6 +203,15 @@ theme = ExtResource("11_crbk7")
 text = "0123456789"
 script = ExtResource("12_k6g16")
 
+[node name="ProjectileGuide" type="Node2D" parent="."]
+script = ExtResource("11_ddmlq")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProjectileGuide"]
+texture_filter = 1
+position = Vector2(88, 0)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("5_pwafo")
+
 [connection signal="timeout" from="DashTimer" to="MovementComponent" method="_on_dash_timer_timeout"]
-[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
 [connection signal="timeout" from="AttackTimer" to="AttackComponent" method="_on_attack_timer_timeout"]

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6i4y5fc33xo3"]
+
+[ext_resource type="Script" path="res://scenes/entities/pebble.gd" id="1_xlt80"]
+[ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_stl1e"]
+[ext_resource type="Script" path="res://scenes/entities/projectile_hitbox.gd" id="3_mjxwm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2g205"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jt8jm"]
+radius = 6.0
+
+[node name="Pebble" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_xlt80")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.099)
+texture = ExtResource("2_stl1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2g205")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_mjxwm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_jt8jm")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

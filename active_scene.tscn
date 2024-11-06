@@ -19,3 +19,5 @@ room_scenes = Array[PackedScene]([ExtResource("4_n084y"), ExtResource("4_pitkn")
 spawn_scene = ExtResource("2_faaqe")
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="Projectiles" type="Node2D" parent="."]
