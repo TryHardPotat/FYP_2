@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dtwnt8jxx8j8f"]
+[gd_scene load_steps=35 format=3 uid="uid://dtwnt8jxx8j8f"]
 
 [ext_resource type="Script" path="res://scenes/entities/slingshot.gd" id="1_evshs"]
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_ndbl3"]
@@ -6,13 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://2ldrxq3nb1ui" path="res://assets/textures/onijiri.png" id="5_pwafo"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_en0xj"]
 [ext_resource type="PackedScene" uid="uid://b6i4y5fc33xo3" path="res://scenes/entities/pebble.tscn" id="6_k4x4j"]
-[ext_resource type="Script" path="res://attack_component.gd" id="7_wf1i1"]
 [ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_hcjdy"]
 [ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="9_ecc04"]
 [ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="10_68rka"]
 [ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://assets/resources/ui/gold_ui.tres" id="11_crbk7"]
-[ext_resource type="Script" path="res://scenes/entities/projectile_guide.gd" id="11_ddmlq"]
+[ext_resource type="Script" path="res://projectile_guide.gd" id="11_ddmlq"]
+[ext_resource type="Script" path="res://scenes/entities/ranged_attack_component.gd" id="12_agkrq"]
 [ext_resource type="Script" path="res://scenes/entities/gold_text.gd" id="12_k6g16"]
+[ext_resource type="Script" path="res://scenes/entities/projectile_lifespan.gd" id="14_pixbd"]
+[ext_resource type="Script" path="res://scenes/entities/ranged_attack_cooldown.gd" id="15_oppkb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
 radius = 60.0
@@ -151,7 +153,7 @@ texture = ExtResource("2_ndbl3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7knae")
 
-[node name="MovementComponent" type="Node" parent="."]
+[node name="Movement_Component" type="Node" parent="."]
 script = ExtResource("3_31b8o")
 
 [node name="DashTimer" type="Timer" parent="."]
@@ -163,13 +165,6 @@ script = ExtResource("6_en0xj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_j3ln6")
-
-[node name="AttackComponent" type="Node" parent="."]
-script = ExtResource("7_wf1i1")
-pebble_scene = ExtResource("6_k4x4j")
-
-[node name="AttackTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
@@ -213,5 +208,18 @@ rotation = 1.5708
 scale = Vector2(2, 2)
 texture = ExtResource("5_pwafo")
 
-[connection signal="timeout" from="DashTimer" to="MovementComponent" method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="AttackTimer" to="AttackComponent" method="_on_attack_timer_timeout"]
+[node name="Ranged Attack Component" type="Node" parent="."]
+script = ExtResource("12_agkrq")
+pebble = ExtResource("6_k4x4j")
+cooldown_time = 0.5
+projectile_lifetime = 0.5
+
+[node name="Projectile Lifespan" type="Timer" parent="."]
+script = ExtResource("14_pixbd")
+
+[node name="Ranged Attack Cooldown" type="Timer" parent="."]
+script = ExtResource("15_oppkb")
+
+[connection signal="timeout" from="DashTimer" to="Movement_Component" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Projectile Lifespan" to="Projectile Lifespan" method="_on_timeout"]
+[connection signal="timeout" from="Ranged Attack Cooldown" to="Ranged Attack Cooldown" method="_on_timeout"]

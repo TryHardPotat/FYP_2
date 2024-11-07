@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://hitbox.gd" id="4_qtqa3"]
 [ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/textures/pointer.png" id="5_yjava"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_0sd6m"]
-[ext_resource type="Script" path="res://attack_component.gd" id="7_yv1g8"]
+[ext_resource type="Script" path="res://melee_attack_component.gd" id="7_yv1g8"]
 [ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_ml331"]
 [ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="9_6cr1e"]
 [ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="10_ggkp7"]

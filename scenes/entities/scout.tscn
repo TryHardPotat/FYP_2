@@ -1,17 +1,19 @@
-[gd_scene load_steps=33 format=3 uid="uid://byjobqop50cew"]
+[gd_scene load_steps=35 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Script" path="res://scenes/entities/scout.gd" id="1_gmnaq"]
 [ext_resource type="Texture2D" uid="uid://balwn7xj8mqe0" path="res://assets/textures/scout.png" id="2_ssymy"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_dajo0"]
 [ext_resource type="Script" path="res://hitbox.gd" id="4_kngsj"]
-[ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/textures/pointer.png" id="5_o4nkb"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_wim8b"]
-[ext_resource type="Script" path="res://attack_component.gd" id="7_1y3nw"]
+[ext_resource type="Script" path="res://melee_attack_component.gd" id="7_1y3nw"]
+[ext_resource type="Texture2D" uid="uid://2ldrxq3nb1ui" path="res://assets/textures/onijiri.png" id="8_103gt"]
 [ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_c2exs"]
 [ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="9_f2t5o"]
 [ext_resource type="Script" path="res://scenes/entities/gold_text.gd" id="9_w5dh8"]
 [ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="10_4g8np"]
 [ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://assets/resources/ui/gold_ui.tres" id="11_ymirx"]
+[ext_resource type="Script" path="res://melee_attack_duration.gd" id="13_m1yoi"]
+[ext_resource type="Script" path="res://melee_attack_cooldown.gd" id="14_07dpo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vxv44"]
 animations = [{
@@ -153,26 +155,35 @@ motion_mode = 1
 up_direction = Vector2(-1, 0)
 script = ExtResource("1_gmnaq")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2.25, 2.25)
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(19, 0)
 sprite_frames = SubResource("SpriteFrames_vxv44")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision Box" type="CollisionShape2D" parent="."]
 position = Vector2(1, 14)
 rotation = 1.5708
 scale = Vector2(1, 0.5)
 shape = SubResource("CapsuleShape2D_18607")
 
-[node name="MovementComponent" type="Node" parent="."]
+[node name="Movement Component" type="Node" parent="."]
 script = ExtResource("3_dajo0")
 
-[node name="DashTimer" type="Timer" parent="."]
+[node name="Dash Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Melee Attack Component" type="Node" parent="."]
+script = ExtResource("7_1y3nw")
+
+[node name="Melee Attack Duration" type="Timer" parent="."]
+script = ExtResource("13_m1yoi")
+
+[node name="Melee Attack Cooldown" type="Timer" parent="."]
+script = ExtResource("14_07dpo")
 
 [node name="Hitbox" type="Area2D" parent="."]
 monitoring = false
@@ -183,21 +194,16 @@ position = Vector2(31, 0)
 shape = SubResource("CapsuleShape2D_mnjl8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hitbox"]
-position = Vector2(35, -2)
-scale = Vector2(0.0917969, 0.157943)
-texture = ExtResource("5_o4nkb")
+texture_filter = 1
+position = Vector2(24, 0)
+rotation = 1.5708
+texture = ExtResource("8_103gt")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("6_wim8b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_j3ln6")
-
-[node name="AttackComponent" type="Node" parent="."]
-script = ExtResource("7_1y3nw")
-
-[node name="AttackTimer" type="Timer" parent="."]
-one_shot = true
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
@@ -232,6 +238,7 @@ theme = ExtResource("11_ymirx")
 text = "0123456789"
 script = ExtResource("9_w5dh8")
 
-[connection signal="timeout" from="DashTimer" to="MovementComponent" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash Timer" to="Movement Component" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Melee Attack Duration" to="Melee Attack Duration" method="_on_timeout"]
+[connection signal="timeout" from="Melee Attack Cooldown" to="Melee Attack Cooldown" method="_on_timeout"]
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
-[connection signal="timeout" from="AttackTimer" to="AttackComponent" method="_on_attack_timer_timeout"]

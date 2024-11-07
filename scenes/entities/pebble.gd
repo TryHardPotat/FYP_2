@@ -1,20 +1,27 @@
-extends CharacterBody2D
+extends Area2D
 
-@export var speed = 100
-@export var damage = 5  # Add damage value for projectiles
-@export var team: String = "player"
-var dir : float
-var spawnPos : Vector2
-var spawnRot : float
+@export var speed = 750
+var direction = Vector2.RIGHT  # Will be set by ranged_attack_component
 
 func _ready():
-	global_position = spawnPos
-	global_rotation = dir + PI/2
-	set_collision_layer_value(2, true)  # Projectiles
-	set_collision_mask_value(1, false)  # Don't collide with player
-	set_collision_mask_value(3, true)   # Do collide with enemies
+	# Rotate the pebble sprite/node to match the shooting direction
+	rotation = direction.angle()
+	
+	# Create and start lifetime timer
+	var lifetime = Timer.new()
+	lifetime.wait_time = 2.0
+	lifetime.one_shot = true
+	add_child(lifetime)
+	lifetime.timeout.connect(_on_lifetime_timeout)
+	lifetime.start()
 
 func _physics_process(delta):
-	velocity = Vector2(0, -speed).rotated(dir + PI/2)
-	
-	var collision = move_and_collide(velocity * delta)
+	position += direction * speed * delta
+
+func _on_lifetime_timeout():
+	queue_free()
+	print("projectile death")
+
+func _on_body_entered(body):
+	# Handle collision if needed
+	queue_free()

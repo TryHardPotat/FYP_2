@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@onready var movement_component : MovementComponent = $MovementComponent
-@onready var attack_component : AttackComponent = $AttackComponent
+@onready var movement_component : Movement_Component = $"Movement Component"
+@onready var attack_component : Melee_Attack_Component = $"Melee Attack Component"
 @onready var hurtbox : Area2D = $Hurtbox
 
 var team : String = "player"

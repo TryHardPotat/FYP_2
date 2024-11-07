@@ -1,5 +1,5 @@
 extends Node
-class_name MovementComponent
+class_name Movement_Component
 
 @onready var dash_timer : Timer = $"../DashTimer"
 
