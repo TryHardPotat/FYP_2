@@ -180,9 +180,11 @@ one_shot = true
 script = ExtResource("7_1y3nw")
 
 [node name="Melee Attack Duration" type="Timer" parent="."]
+wait_time = 0.1
 script = ExtResource("13_m1yoi")
 
 [node name="Melee Attack Cooldown" type="Timer" parent="."]
+wait_time = 0.5
 script = ExtResource("14_07dpo")
 
 [node name="Hitbox" type="Area2D" parent="."]

@@ -1,7 +1,7 @@
 extends Node
 class_name Movement_Component
 
-@onready var dash_timer : Timer = $"../DashTimer"
+@onready var dash_timer : Timer = $"../Dash Timer"
 
 @export var speed = 250.0
 @export var base_acceleration = 0.1 # Ranges from 0 - 1
