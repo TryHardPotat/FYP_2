@@ -156,7 +156,7 @@ shape = SubResource("CircleShape2D_7knae")
 [node name="Movement_Component" type="Node" parent="."]
 script = ExtResource("3_31b8o")
 
-[node name="DashTimer" type="Timer" parent="."]
+[node name="Dash Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
 
@@ -220,6 +220,6 @@ script = ExtResource("14_pixbd")
 [node name="Ranged Attack Cooldown" type="Timer" parent="."]
 script = ExtResource("15_oppkb")
 
-[connection signal="timeout" from="DashTimer" to="Movement_Component" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash Timer" to="Movement_Component" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Projectile Lifespan" to="Projectile Lifespan" method="_on_timeout"]
 [connection signal="timeout" from="Ranged Attack Cooldown" to="Ranged Attack Cooldown" method="_on_timeout"]

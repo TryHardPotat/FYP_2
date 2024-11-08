@@ -1,6 +1,9 @@
 extends Area2D
 
+@export var damage = 5
 @export var speed = 750
+
+var team : String = "player"
 var direction = Vector2.RIGHT  # Will be set by ranged_attack_component
 
 func _ready():
@@ -23,5 +26,6 @@ func _on_lifetime_timeout():
 	print("projectile death")
 
 func _on_body_entered(body):
-	# Handle collision if needed
-	queue_free()
+	if body.has_method("take_damage") and body.get("team") != team:
+		body.take_damage(damage)
+		queue_free()
