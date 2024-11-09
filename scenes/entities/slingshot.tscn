@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dtwnt8jxx8j8f"]
+[gd_scene load_steps=34 format=3 uid="uid://dtwnt8jxx8j8f"]
 
 [ext_resource type="Script" path="res://scenes/entities/slingshot.gd" id="1_evshs"]
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_ndbl3"]
@@ -17,13 +17,10 @@
 [ext_resource type="Script" path="res://scenes/entities/ranged_attack_cooldown.gd" id="15_oppkb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
-radius = 60.0
+radius = 15.0333
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ln6"]
-size = Vector2(128, 128)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8ih3"]
-bg_color = Color(1, 0, 0, 1)
+size = Vector2(32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lt0m"]
 atlas = ExtResource("9_ecc04")
@@ -85,7 +82,7 @@ region = Rect2(208, 0, 16, 16)
 atlas = ExtResource("9_ecc04")
 region = Rect2(224, 0, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_yisea"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_vdhk6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -139,15 +136,16 @@ animations = [{
 }]
 
 [node name="Slingshot" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
 motion_mode = 1
 up_direction = Vector2(-1, 0)
 script = ExtResource("1_evshs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.25, 2.25)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_ndbl3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -181,31 +179,31 @@ shape = SubResource("RectangleShape2D_j3ln6")
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
 [node name="HealthBar" type="ProgressBar" parent="CanvasGroup"]
+texture_filter = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -934.0
-offset_top = 470.0
-offset_right = -461.0
-offset_bottom = 519.0
+offset_left = -415.0
+offset_top = 204.0
+offset_right = -211.0
+offset_bottom = 229.0
 grow_vertical = 0
 theme = ExtResource("8_hcjdy")
-theme_override_styles/background = SubResource("StyleBoxFlat_n8ih3")
 value = 100.0
 
 [node name="UI_Gold" type="AnimatedSprite2D" parent="CanvasGroup"]
 texture_filter = 1
-position = Vector2(-904, -487)
-scale = Vector2(5, 5)
-sprite_frames = SubResource("SpriteFrames_yisea")
+position = Vector2(-402, -216)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_vdhk6")
 script = ExtResource("10_68rka")
 
 [node name="Gold" type="Label" parent="CanvasGroup"]
-texture_filter = 5
-offset_left = -847.0
-offset_top = -507.0
-offset_right = -613.0
-offset_bottom = -458.0
+texture_filter = 1
+offset_left = -379.0
+offset_top = -226.0
+offset_right = -261.0
+offset_bottom = -208.0
 theme = ExtResource("11_crbk7")
 text = "0123456789"
 script = ExtResource("12_k6g16")
@@ -215,9 +213,8 @@ script = ExtResource("11_ddmlq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Projectile Guide"]
 texture_filter = 1
-position = Vector2(88, 0)
+position = Vector2(32, 0)
 rotation = 1.5708
-scale = Vector2(2, 2)
 texture = ExtResource("5_pwafo")
 
 [connection signal="timeout" from="Dash Timer" to="Movement Component" method="_on_dash_timer_timeout"]
