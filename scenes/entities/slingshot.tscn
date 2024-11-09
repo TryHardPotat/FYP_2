@@ -153,12 +153,24 @@ texture = ExtResource("2_ndbl3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7knae")
 
-[node name="Movement_Component" type="Node" parent="."]
+[node name="Movement Component" type="Node" parent="."]
 script = ExtResource("3_31b8o")
 
 [node name="Dash Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="Ranged Attack Component" type="Node" parent="."]
+script = ExtResource("12_agkrq")
+projectile = ExtResource("6_k4x4j")
+cooldown_time = 0.5
+projectile_lifetime = 0.5
+
+[node name="Projectile Lifespan" type="Timer" parent="."]
+script = ExtResource("14_pixbd")
+
+[node name="Ranged Attack Cooldown" type="Timer" parent="."]
+script = ExtResource("15_oppkb")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("6_en0xj")
@@ -198,28 +210,16 @@ theme = ExtResource("11_crbk7")
 text = "0123456789"
 script = ExtResource("12_k6g16")
 
-[node name="ProjectileGuide" type="Node2D" parent="."]
+[node name="Projectile Guide" type="Node2D" parent="."]
 script = ExtResource("11_ddmlq")
 
-[node name="Sprite2D" type="Sprite2D" parent="ProjectileGuide"]
+[node name="Sprite2D" type="Sprite2D" parent="Projectile Guide"]
 texture_filter = 1
 position = Vector2(88, 0)
 rotation = 1.5708
 scale = Vector2(2, 2)
 texture = ExtResource("5_pwafo")
 
-[node name="Ranged Attack Component" type="Node" parent="."]
-script = ExtResource("12_agkrq")
-pebble = ExtResource("6_k4x4j")
-cooldown_time = 0.5
-projectile_lifetime = 0.5
-
-[node name="Projectile Lifespan" type="Timer" parent="."]
-script = ExtResource("14_pixbd")
-
-[node name="Ranged Attack Cooldown" type="Timer" parent="."]
-script = ExtResource("15_oppkb")
-
-[connection signal="timeout" from="Dash Timer" to="Movement_Component" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash Timer" to="Movement Component" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Projectile Lifespan" to="Projectile Lifespan" method="_on_timeout"]
 [connection signal="timeout" from="Ranged Attack Cooldown" to="Ranged Attack Cooldown" method="_on_timeout"]

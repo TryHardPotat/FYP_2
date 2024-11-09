@@ -1,22 +1,22 @@
-[gd_scene load_steps=35 format=3 uid="uid://y5nt8o6r3cxr"]
+[gd_scene load_steps=33 format=3 uid="uid://y5nt8o6r3cxr"]
 
 [ext_resource type="Script" path="res://scenes/entities/spellcaster.gd" id="1_viep1"]
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_fxmnn"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_7q5my"]
-[ext_resource type="Script" path="res://scenes/entities/ranged_attack_component.gd" id="4_1rjot"]
-[ext_resource type="PackedScene" uid="uid://bj1l8mh54oymf" path="res://scenes/entities/magic_orb.tscn" id="5_3kqa7"]
+[ext_resource type="Script" path="res://hitbox.gd" id="4_qtqa3"]
+[ext_resource type="Texture2D" uid="uid://c8mp44f5i7gqq" path="res://assets/textures/pointer.png" id="5_yjava"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_0sd6m"]
-[ext_resource type="Script" path="res://scenes/entities/projectile_lifespan.gd" id="6_038h6"]
-[ext_resource type="Script" path="res://scenes/entities/ranged_attack_cooldown.gd" id="7_w2ht4"]
+[ext_resource type="Script" path="res://melee_attack_component.gd" id="7_yv1g8"]
 [ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_ml331"]
 [ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="9_6cr1e"]
 [ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="10_ggkp7"]
 [ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://assets/resources/ui/gold_ui.tres" id="11_8kt2x"]
 [ext_resource type="Script" path="res://scenes/entities/gold_text.gd" id="12_i3c35"]
-[ext_resource type="Script" path="res://projectile_guide.gd" id="14_3jrcb"]
-[ext_resource type="Texture2D" uid="uid://2ldrxq3nb1ui" path="res://assets/textures/onijiri.png" id="15_ikt6f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7knae"]
+radius = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nla3r"]
 radius = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ln6"]
@@ -159,23 +159,30 @@ script = ExtResource("3_7q5my")
 wait_time = 0.2
 one_shot = true
 
-[node name="Ranged Attack Component" type="Node" parent="."]
-script = ExtResource("4_1rjot")
-projectile = ExtResource("5_3kqa7")
-cooldown_time = 0.5
-projectile_lifetime = 0.5
+[node name="Hitbox" type="Area2D" parent="."]
+monitoring = false
+script = ExtResource("4_qtqa3")
 
-[node name="Projectile Lifespan" type="Timer" parent="."]
-script = ExtResource("6_038h6")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(120, 0)
+shape = SubResource("CircleShape2D_nla3r")
 
-[node name="Ranged Attack Cooldown" type="Timer" parent="."]
-script = ExtResource("7_w2ht4")
+[node name="Sprite2D" type="Sprite2D" parent="Hitbox"]
+position = Vector2(121, -4)
+scale = Vector2(0.337438, 0.337438)
+texture = ExtResource("5_yjava")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 script = ExtResource("6_0sd6m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_j3ln6")
+
+[node name="AttackComponent" type="Node" parent="."]
+script = ExtResource("7_yv1g8")
+
+[node name="AttackTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
 
@@ -209,16 +216,6 @@ theme = ExtResource("11_8kt2x")
 text = "0123456789"
 script = ExtResource("12_i3c35")
 
-[node name="Projectile Guide" type="Node2D" parent="."]
-script = ExtResource("14_3jrcb")
-
-[node name="Sprite2D" type="Sprite2D" parent="Projectile Guide"]
-texture_filter = 1
-position = Vector2(88, 0)
-rotation = 1.5708
-scale = Vector2(2, 2)
-texture = ExtResource("15_ikt6f")
-
 [connection signal="timeout" from="Dash Timer" to="Movement Component" method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="Projectile Lifespan" to="Projectile Lifespan" method="_on_timeout"]
-[connection signal="timeout" from="Ranged Attack Cooldown" to="Ranged Attack Cooldown" method="_on_timeout"]
+[connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="AttackComponent" method="_on_attack_timer_timeout"]
