@@ -17,6 +17,8 @@ func _ready():
 	add_child(lifetime)
 	lifetime.timeout.connect(_on_lifetime_timeout)
 	lifetime.start()
+	
+	$AnimatedSprite2D.play("default")
 
 func _physics_process(delta):
 	position += direction * speed * delta
