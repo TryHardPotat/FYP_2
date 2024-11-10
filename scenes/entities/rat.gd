@@ -20,6 +20,10 @@ func take_damage(amount):
 func update_health():
 	health_bar.value = health
 
+func despawn():
+	print('rat despawned - outside playarea')
+	queue_free()
+
 func die():
 	Global.current_run_gold += 1
 	queue_free()  # Remove the enemy from the scene

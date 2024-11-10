@@ -20,5 +20,5 @@ func attack():
 		attack_duration.start()
 		attack_cooldown.start()
 
-func _process(delta):
+func _process(_delta):
 	input_attack()
