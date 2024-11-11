@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=3 uid="uid://pwwfesm5uwih"]
+
+[ext_resource type="Script" path="res://scenes/menus/subclass_select.gd" id="1_wdxr6"]
+[ext_resource type="Texture2D" uid="uid://c5pjw3yatl1xv" path="res://assets/resources/ui/temp_char_select.jpg" id="2_liv2t"]
+[ext_resource type="Theme" uid="uid://dsqobkwl8vb1d" path="res://assets/resources/ui/char_select_theme.tres" id="3_tnfaa"]
+[ext_resource type="Theme" uid="uid://cq8b07chjn5ft" path="res://assets/resources/ui/character_select_title.tres" id="4_xccau"]
+[ext_resource type="Theme" uid="uid://wetqpq70f54a" path="res://assets/resources/ui/stats_text.tres" id="5_ykw08"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uoftr"]
+texture = ExtResource("2_liv2t")
+modulate_color = Color(0.270588, 0.678431, 0.658824, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wdxr6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uoftr")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("3_tnfaa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_xccau")
+text = "Sub-class Select"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_tnfaa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Athlete"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_ykw08")
+text = "+10% Speed
++5% Health"
+
+[node name="Select Athlete" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Select"
+
+[node name="Panel2" type="PanelContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+text = "Tank"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_ykw08")
+text = "+20% Health
+-20% Speed"
+
+[node name="Select Tank" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+text = "Select"
+
+[node name="Panel3" type="PanelContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel3"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel3/VBoxContainer"]
+layout_mode = 2
+text = "Glass-Cannon"
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel3/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_ykw08")
+text = "+20% Damage
+-20% Health"
+
+[node name="Select Glasscannon" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel3/VBoxContainer"]
+layout_mode = 2
+text = "Select"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/Select Athlete" to="." method="_on_select_athlete_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel2/VBoxContainer/Select Tank" to="." method="_on_select_tank_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Panel3/VBoxContainer/Select Glasscannon" to="." method="_on_select_glasscannon_pressed"]

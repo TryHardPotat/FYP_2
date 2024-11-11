@@ -7,6 +7,7 @@ var character_scenes = {
 	"Spellcaster": preload("res://scenes/entities/spellcaster.tscn")
 }
 var selected_character : PackedScene = null
+var selected_subclass : String
 var dungeon_width : int = 5
 var dungeon_height : int = 5
 
