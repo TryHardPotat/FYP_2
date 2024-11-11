@@ -1,9 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://byjobqop50cew"]
+[gd_scene load_steps=37 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Script" path="res://scenes/entities/scout.gd" id="1_gmnaq"]
 [ext_resource type="Texture2D" uid="uid://balwn7xj8mqe0" path="res://assets/textures/scout.png" id="2_ssymy"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_dajo0"]
+[ext_resource type="Script" path="res://scenes/entities/dash_duration.gd" id="4_7w1e0"]
 [ext_resource type="Script" path="res://hitbox.gd" id="4_kngsj"]
+[ext_resource type="Script" path="res://scenes/entities/dash_cooldown.gd" id="5_7cs2x"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_wim8b"]
 [ext_resource type="Script" path="res://melee_attack_component.gd" id="7_1y3nw"]
 [ext_resource type="Texture2D" uid="uid://2ldrxq3nb1ui" path="res://assets/textures/onijiri.png" id="8_103gt"]
@@ -172,9 +174,15 @@ shape = SubResource("CapsuleShape2D_18607")
 [node name="Movement Component" type="Node" parent="."]
 script = ExtResource("3_dajo0")
 
-[node name="Dash Timer" type="Timer" parent="."]
+[node name="Dash Duration" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+script = ExtResource("4_7w1e0")
+
+[node name="Dash Cooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("5_7cs2x")
 
 [node name="Melee Attack Component" type="Node" parent="."]
 script = ExtResource("7_1y3nw")
@@ -240,7 +248,8 @@ theme = ExtResource("11_ymirx")
 text = "0123456789"
 script = ExtResource("9_w5dh8")
 
-[connection signal="timeout" from="Dash Timer" to="Movement Component" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash Duration" to="Dash Duration" method="_on_timeout"]
+[connection signal="timeout" from="Dash Cooldown" to="Dash Cooldown" method="_on_timeout"]
 [connection signal="timeout" from="Melee Attack Duration" to="Melee Attack Duration" method="_on_timeout"]
 [connection signal="timeout" from="Melee Attack Cooldown" to="Melee Attack Cooldown" method="_on_timeout"]
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="_on_body_entered"]
