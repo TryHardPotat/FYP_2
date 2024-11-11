@@ -1,13 +1,15 @@
 extends Control
 
 func _on_play_pressed():
+	print('play button pressed')
 	get_tree().change_scene_to_file("res://scenes/menus/character_select.tscn")
 
 func _on_options_pressed():
-	pass # Replace with function body.
+	print('options button pressed')
 
 func _on_credits_pressed():
-	pass # Replace with function body.
+	print('credits button pressed')
 
 func _on_quit_pressed():
+	print('quit button pressed')
 	get_tree().quit()
