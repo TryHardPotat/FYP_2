@@ -4,7 +4,7 @@ class_name Movement_Component
 @onready var dash_duration : Timer = $"../Dash Duration"
 @onready var dash_cooldown : Timer = $"../Dash Cooldown"
 
-@export var speed = 250.0
+@export var speed = 250 * Global.subclass_speed_multiplier
 @export var base_acceleration = 0.1 # Ranges from 0 - 1
 var current_acceleration = base_acceleration
 
@@ -36,7 +36,7 @@ func dash():
 		pass
 	else:
 		is_dashing = true
-		speed = 500
+		speed *= 2
 		current_acceleration = 1
 		dash_duration.start()
 		dash_cooldown.start()

@@ -3,14 +3,17 @@ extends Node
 var selected_character = ""
 var scout_base_stats = {
 	"health": 100,
+	"damage" : 5,
 	"gold": 0
 }
 var slingshot_base_stats = {
 	"health": 75,
+	"damage" : 5,
 	"gold": 0
 }
 var spellcaster_base_stats = {
 	"health": 50,
+	"damage" : 5,
 	"gold": 0
 }
 
@@ -87,7 +90,7 @@ func load_stats():
 	
 	return false
 
-func update_stat(stat_name: String, value: int):
+func update_stat(stat_name: String, value: float):
 	if stats.has(stat_name):
 		stats[stat_name] = value
 		# Since stats is a reference, all_characters_stats is automatically updated

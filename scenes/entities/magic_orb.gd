@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var damage = 5
+@export var damage = 10 * Global.subclass_damage_multiplier
 @export var speed = 250
 
 var team : String = "player"
