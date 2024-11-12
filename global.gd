@@ -11,6 +11,10 @@ var selected_subclass : String
 var dungeon_width : int = 5
 var dungeon_height : int = 5
 
+## Player Level & Experience
+var player_level = 1
+var player_exp = 0
+
 ## Player Gold
 var current_run_gold : int = 0
 var gold : int = 0

@@ -26,6 +26,9 @@ func despawn():
 
 func die():
 	Global.current_run_gold += 1
+	if player:
+		var exp_amount = 1
+		player.gain_exp(exp_amount)
 	queue_free()  # Remove the enemy from the scene
 
 func _physics_process(_delta):

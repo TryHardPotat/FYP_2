@@ -33,7 +33,7 @@ func input_dash():
 
 func dash():
 	if is_dashing:
-		print('dash on cooldown')
+		pass
 	else:
 		is_dashing = true
 		speed = 500
