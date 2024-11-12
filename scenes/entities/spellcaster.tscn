@@ -1,10 +1,12 @@
-[gd_scene load_steps=34 format=3 uid="uid://y5nt8o6r3cxr"]
+[gd_scene load_steps=36 format=3 uid="uid://y5nt8o6r3cxr"]
 
 [ext_resource type="Script" path="res://scenes/entities/spellcaster.gd" id="1_viep1"]
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_fxmnn"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_7q5my"]
 [ext_resource type="Script" path="res://scenes/entities/ranged_attack_component.gd" id="4_1rjot"]
+[ext_resource type="Script" path="res://scenes/entities/dash_duration.gd" id="4_2gp7b"]
 [ext_resource type="PackedScene" uid="uid://bj1l8mh54oymf" path="res://scenes/entities/magic_orb.tscn" id="5_3kqa7"]
+[ext_resource type="Script" path="res://scenes/entities/dash_cooldown.gd" id="5_rsndg"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_0sd6m"]
 [ext_resource type="Script" path="res://scenes/entities/projectile_lifespan.gd" id="6_038h6"]
 [ext_resource type="Script" path="res://scenes/entities/ranged_attack_cooldown.gd" id="7_w2ht4"]
@@ -154,9 +156,15 @@ shape = SubResource("CircleShape2D_7knae")
 [node name="Movement Component" type="Node" parent="."]
 script = ExtResource("3_7q5my")
 
-[node name="Dash Timer" type="Timer" parent="."]
+[node name="Dash Duration" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+script = ExtResource("4_2gp7b")
+
+[node name="Dash Cooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("5_rsndg")
 
 [node name="Ranged Attack Component" type="Node" parent="."]
 script = ExtResource("4_1rjot")
@@ -217,6 +225,7 @@ position = Vector2(32, 0)
 rotation = 1.5708
 texture = ExtResource("15_ikt6f")
 
-[connection signal="timeout" from="Dash Timer" to="Movement Component" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash Duration" to="Dash Duration" method="_on_timeout"]
+[connection signal="timeout" from="Dash Cooldown" to="Dash Cooldown" method="_on_timeout"]
 [connection signal="timeout" from="Projectile Lifespan" to="Projectile Lifespan" method="_on_timeout"]
 [connection signal="timeout" from="Ranged Attack Cooldown" to="Ranged Attack Cooldown" method="_on_timeout"]

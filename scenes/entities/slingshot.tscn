@@ -1,9 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://dtwnt8jxx8j8f"]
+[gd_scene load_steps=36 format=3 uid="uid://dtwnt8jxx8j8f"]
 
 [ext_resource type="Script" path="res://scenes/entities/slingshot.gd" id="1_evshs"]
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_ndbl3"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_31b8o"]
+[ext_resource type="Script" path="res://scenes/entities/dash_duration.gd" id="4_phoec"]
 [ext_resource type="Texture2D" uid="uid://2ldrxq3nb1ui" path="res://assets/textures/onijiri.png" id="5_pwafo"]
+[ext_resource type="Script" path="res://scenes/entities/dash_cooldown.gd" id="5_xwce0"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_en0xj"]
 [ext_resource type="PackedScene" uid="uid://b6i4y5fc33xo3" path="res://scenes/entities/pebble.tscn" id="6_k4x4j"]
 [ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_hcjdy"]
@@ -154,9 +156,15 @@ shape = SubResource("CircleShape2D_7knae")
 [node name="Movement Component" type="Node" parent="."]
 script = ExtResource("3_31b8o")
 
-[node name="Dash Timer" type="Timer" parent="."]
+[node name="Dash Duration" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+script = ExtResource("4_phoec")
+
+[node name="Dash Cooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("5_xwce0")
 
 [node name="Ranged Attack Component" type="Node" parent="."]
 script = ExtResource("12_agkrq")
@@ -217,6 +225,7 @@ position = Vector2(32, 0)
 rotation = 1.5708
 texture = ExtResource("5_pwafo")
 
-[connection signal="timeout" from="Dash Timer" to="Movement Component" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Dash Duration" to="Dash Duration" method="_on_timeout"]
+[connection signal="timeout" from="Dash Cooldown" to="Dash Cooldown" method="_on_timeout"]
 [connection signal="timeout" from="Projectile Lifespan" to="Projectile Lifespan" method="_on_timeout"]
 [connection signal="timeout" from="Ranged Attack Cooldown" to="Ranged Attack Cooldown" method="_on_timeout"]
