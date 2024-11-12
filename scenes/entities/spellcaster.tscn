@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://y5nt8o6r3cxr"]
+[gd_scene load_steps=37 format=3 uid="uid://y5nt8o6r3cxr"]
 
 [ext_resource type="Script" path="res://scenes/entities/spellcaster.gd" id="1_viep1"]
 [ext_resource type="Texture2D" uid="uid://cgbghe6te32wb" path="res://assets/textures/icon.svg" id="2_fxmnn"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="9_6cr1e"]
 [ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="10_ggkp7"]
 [ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://assets/resources/ui/gold_ui.tres" id="11_8kt2x"]
+[ext_resource type="Theme" uid="uid://dqb6clx3o3inv" path="res://scenes/entities/exp_bar.tres" id="12_3cf0v"]
 [ext_resource type="Script" path="res://scenes/entities/gold_text.gd" id="12_i3c35"]
 [ext_resource type="Script" path="res://projectile_guide.gd" id="14_3jrcb"]
 [ext_resource type="Texture2D" uid="uid://2ldrxq3nb1ui" path="res://assets/textures/onijiri.png" id="15_ikt6f"]
@@ -191,13 +192,23 @@ texture_filter = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -415.0
-offset_top = 204.0
-offset_right = -211.0
-offset_bottom = 229.0
+offset_left = -416.0
+offset_top = 192.0
+offset_right = -208.0
+offset_bottom = 219.0
 grow_vertical = 0
 theme = ExtResource("8_ml331")
 value = 100.0
+
+[node name="ExperienceBar" type="ProgressBar" parent="CanvasGroup"]
+texture_filter = 1
+offset_left = -416.0
+offset_top = 224.0
+offset_right = -208.0
+offset_bottom = 231.0
+theme = ExtResource("12_3cf0v")
+max_value = 10.0
+show_percentage = false
 
 [node name="UI_Gold" type="AnimatedSprite2D" parent="CanvasGroup"]
 texture_filter = 1
