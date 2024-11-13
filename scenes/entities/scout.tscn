@@ -177,12 +177,10 @@ script = ExtResource("3_dajo0")
 
 [node name="Dash Duration" type="Timer" parent="."]
 wait_time = 0.2
-one_shot = true
 script = ExtResource("4_7w1e0")
 
 [node name="Dash Cooldown" type="Timer" parent="."]
 wait_time = 3.0
-one_shot = true
 script = ExtResource("5_7cs2x")
 
 [node name="Melee Attack Component" type="Node" parent="."]
@@ -259,7 +257,9 @@ theme = ExtResource("11_ymirx")
 text = "0123456789"
 script = ExtResource("9_w5dh8")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="LevelUpAudio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AttackAudio" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="timeout" from="Dash Duration" to="Dash Duration" method="_on_timeout"]
 [connection signal="timeout" from="Dash Cooldown" to="Dash Cooldown" method="_on_timeout"]

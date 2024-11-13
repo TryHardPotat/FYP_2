@@ -28,7 +28,7 @@ func movement_handler(_delta):
 
 ## TODO: Implement dash cooldown.
 func input_dash():
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_pressed("dash"):
 		dash()
 
 func dash():

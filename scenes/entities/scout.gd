@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var attack_component : Melee_Attack_Component = $"Melee Attack Component"
 @onready var hurtbox : Area2D = $Hurtbox
 @onready var exp_bar : ProgressBar = $CanvasGroup/ExperienceBar
-@onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var level_up_audio_player : AudioStreamPlayer2D = $LevelUpAudio
 
 var team : String = "player"
 var player_exp = Global.player_exp
@@ -33,8 +33,8 @@ func level_up():
 	exp_bar.max_value *= 1.5
 	
 	## Sound Effect
-	audio_player.stream = load("res://assets/audio/level-up-3-199576.mp3")
-	audio_player.play()
+	level_up_audio_player.stream = load("res://assets/audio/level-up-3-199576.mp3")
+	level_up_audio_player.play()
 	
 	## Increase Player Attributes
 	# Damage
