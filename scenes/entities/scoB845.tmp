@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://byjobqop50cew"]
+[gd_scene load_steps=38 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Script" path="res://scenes/entities/scout.gd" id="1_gmnaq"]
 [ext_resource type="Texture2D" uid="uid://balwn7xj8mqe0" path="res://assets/textures/scout.png" id="2_ssymy"]
@@ -17,7 +17,6 @@
 [ext_resource type="Theme" uid="uid://dqb6clx3o3inv" path="res://scenes/entities/exp_bar.tres" id="13_12fdb"]
 [ext_resource type="Script" path="res://melee_attack_duration.gd" id="13_m1yoi"]
 [ext_resource type="Script" path="res://melee_attack_cooldown.gd" id="14_07dpo"]
-[ext_resource type="AudioStream" uid="uid://5dviihn8cf8t" path="res://assets/audio/level-up-3-199576.mp3" id="18_rp4dn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vxv44"]
 animations = [{
@@ -259,9 +258,6 @@ offset_bottom = -208.0
 theme = ExtResource("11_ymirx")
 text = "0123456789"
 script = ExtResource("9_w5dh8")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("18_rp4dn")
 
 [connection signal="timeout" from="Dash Duration" to="Dash Duration" method="_on_timeout"]
 [connection signal="timeout" from="Dash Cooldown" to="Dash Cooldown" method="_on_timeout"]

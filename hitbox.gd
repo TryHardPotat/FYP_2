@@ -1,6 +1,9 @@
 extends Area2D
 
-@export var damage = 5 * Global.subclass_damage_multiplier
+@export var base_damage = 5
+var damage: float:
+	get:
+		return base_damage * Global.subclass_damage_multiplier
 
 func _process(_delta):
 	look_at(get_global_mouse_position())

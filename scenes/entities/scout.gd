@@ -30,4 +30,18 @@ func level_up():
 	player_exp = 0
 	exp_bar.value = 0
 	exp_bar.max_value *= 1.5
+	
+	## Sound Effect
+	$AudioStreamPlayer2D.play()
+	
+	## Increase Player Attributes
+	# Damage
+	$Hitbox.base_damage *= 1.1
+	
+	# Health
+	var old_health_percent = $Hurtbox.health / $Hurtbox.max_health
+	$Hurtbox.max_health *= 1.1
+	$Hurtbox.health = $Hurtbox.max_health * old_health_percent
+	$Hurtbox.update_health_bar()
+	
 	print("Level Up: Player Level ", player_level)
