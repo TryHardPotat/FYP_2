@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp2xvh7q3nltd"]
+[gd_scene load_steps=13 format=3 uid="uid://dp2xvh7q3nltd"]
 
 [ext_resource type="PackedScene" uid="uid://bwljgivopd1yw" path="res://spawner.tscn" id="1_befqd"]
 [ext_resource type="Script" path="res://active_scene.gd" id="1_hiuuu"]
@@ -7,6 +7,32 @@
 [ext_resource type="PackedScene" uid="uid://b4ge8rotac0uo" path="res://scenes/rooms/room_1.tscn" id="4_n084y"]
 [ext_resource type="PackedScene" uid="uid://byfussd3i15f" path="res://scenes/rooms/room_2.tscn" id="4_pitkn"]
 [ext_resource type="PackedScene" uid="uid://urp77voww5kl" path="res://scenes/rooms/room_3.tscn" id="5_jxhmt"]
+[ext_resource type="Script" path="res://in_game_timer.gd" id="8_34dcg"]
+[ext_resource type="FontFile" uid="uid://bmhvm0ep03otx" path="res://assets/resources/fonts/PixelifySans-VariableFont_wght.ttf" id="8_y6wic"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5fdfr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cm7s7"]
+bg_color = Color(0.64, 0.42656, 0.0832, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.76, 0.509707, 0.3648, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
+[sub_resource type="Theme" id="Theme_ddg4l"]
+default_font = ExtResource("8_y6wic")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("8_y6wic")
+Panel/styles/panel = SubResource("StyleBoxEmpty_5fdfr")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_cm7s7")
 
 [node name="ActiveScene" type="Node2D"]
 script = ExtResource("1_hiuuu")
@@ -21,3 +47,41 @@ spawn_scene = ExtResource("2_faaqe")
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="In-game Timer" type="Panel" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme = SubResource("Theme_ddg4l")
+script = ExtResource("8_34dcg")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/In-game Timer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/In-game Timer/CenterContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/In-game Timer/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Hours" type="Label" parent="CanvasLayer/In-game Timer/CenterContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "HH:"
+
+[node name="Minutes" type="Label" parent="CanvasLayer/In-game Timer/CenterContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "MM:"
+
+[node name="Seconds" type="Label" parent="CanvasLayer/In-game Timer/CenterContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "SS"
