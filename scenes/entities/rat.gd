@@ -7,6 +7,20 @@ extends CharacterBody2D
 @export var team : String = "enemy"
 
 @onready var health_bar = $CanvasGroup/HealthBar
+@onready var base_health = health
+@onready var base_damage = damage
+@onready var base_speed = speed
+
+func _ready():
+	var scaler = get_node("/root/ActiveScene/DifficultyScaler")
+	if scaler:
+		health = base_health * scaler.get_health_multiplier()
+		damage = base_damage * scaler.get_damage_multiplier()
+		speed = base_speed * scaler.get_speed_multiplier()
+		
+		# Set the health bar's max value to match the scaled health
+		health_bar.max_value = health
+		health_bar.value = health
 
 func set_player(new_player):
 	player = new_player

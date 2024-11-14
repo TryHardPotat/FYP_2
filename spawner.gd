@@ -5,7 +5,7 @@ extends Node2D
 @export var spawn_scene : PackedScene ## Enemy Scene
 @export var target_scene : PackedScene = Global.selected_character ## Player Scene
 @export var spawn_interval : float = 2.0
-@export var spawn_radius : float = 1000.0
+@export var spawn_radius : float = 800.0
 var player : Node2D
 
 func _ready():
