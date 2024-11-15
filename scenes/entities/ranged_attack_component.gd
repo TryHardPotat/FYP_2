@@ -4,6 +4,8 @@ class_name Ranged_Attack_Component
 @onready var attack_cooldown = $"../Ranged Attack Cooldown"
 @onready var projectile_container = get_tree().get_root().get_node("ActiveScene/Projectiles")
 @onready var projectile_guide = $"../Projectile Guide"
+@onready var spellcaster = $".."
+
 @export var projectile: PackedScene
 @export var cooldown_time: float = 1.0
 @export var projectile_lifetime: float = 2.0
@@ -32,7 +34,9 @@ func attack():
 	var instance = projectile.instantiate()
 	instance.global_position = $"..".global_position
 	instance.direction = Vector2.RIGHT.rotated(projectile_guide.rotation)
+	instance.initialize(spellcaster.base_damage)
 	projectile_container.add_child(instance)
 	is_attacking = true
 	attack_cooldown.start()
+	
 	print("pebble shot")

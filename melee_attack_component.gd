@@ -21,7 +21,7 @@ func attack():
 		attack_duration.start()
 		attack_cooldown.start()
 		
-		## Sound Effectw
+		## Sound Effect
 		attack_audio_player.stream = load("res://assets/audio/scout_attack.mp3")
 		attack_audio_player.play()
 

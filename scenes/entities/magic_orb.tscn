@@ -62,4 +62,9 @@ sprite_frames = SubResource("SpriteFrames_u40if")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2g205")
 
+[node name="ProjectileSFX" type="AudioStreamPlayer2D" parent="."]
+volume_db = -9.0
+max_distance = 750.0
+attenuation = 2.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
