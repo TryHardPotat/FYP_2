@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dp2xvh7q3nltd"]
+[gd_scene load_steps=15 format=3 uid="uid://dp2xvh7q3nltd"]
 
 [ext_resource type="PackedScene" uid="uid://bwljgivopd1yw" path="res://spawner.tscn" id="1_befqd"]
 [ext_resource type="Script" path="res://active_scene.gd" id="1_hiuuu"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ge8rotac0uo" path="res://scenes/rooms/room_1.tscn" id="4_n084y"]
 [ext_resource type="PackedScene" uid="uid://byfussd3i15f" path="res://scenes/rooms/room_2.tscn" id="4_pitkn"]
 [ext_resource type="PackedScene" uid="uid://urp77voww5kl" path="res://scenes/rooms/room_3.tscn" id="5_jxhmt"]
+[ext_resource type="PackedScene" uid="uid://ci641ndg1vt1a" path="res://scenes/rooms/room_4.tscn" id="6_n7taq"]
 [ext_resource type="Script" path="res://in_game_timer.gd" id="8_34dcg"]
 [ext_resource type="FontFile" uid="uid://bmhvm0ep03otx" path="res://assets/resources/fonts/PixelifySans-VariableFont_wght.ttf" id="8_y6wic"]
 [ext_resource type="Script" path="res://difficulty_scaler.gd" id="10_rw4lt"]
@@ -40,7 +41,7 @@ script = ExtResource("1_hiuuu")
 
 [node name="DungeonGenerator" type="Node" parent="."]
 script = ExtResource("3_onls7")
-room_scenes = Array[PackedScene]([ExtResource("4_n084y"), ExtResource("4_pitkn"), ExtResource("5_jxhmt")])
+room_scenes = Array[PackedScene]([ExtResource("4_n084y"), ExtResource("4_pitkn"), ExtResource("5_jxhmt"), ExtResource("6_n7taq")])
 
 [node name="DifficultyScaler" type="Node" parent="."]
 script = ExtResource("10_rw4lt")
