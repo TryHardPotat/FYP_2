@@ -1,4 +1,13 @@
-[gd_scene format=3 uid="uid://tkkgleyxal1x"]
+[gd_scene load_steps=6 format=3 uid="uid://tkkgleyxal1x"]
+
+[ext_resource type="Texture2D" uid="uid://c5pjw3yatl1xv" path="res://assets/resources/ui/temp_char_select.jpg" id="1_3nqls"]
+[ext_resource type="Theme" uid="uid://dsqobkwl8vb1d" path="res://assets/resources/ui/char_select_theme.tres" id="2_4lh6i"]
+[ext_resource type="Theme" uid="uid://cq8b07chjn5ft" path="res://assets/resources/ui/character_select_title.tres" id="3_j4vck"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u8p1v"]
+texture = ExtResource("1_3nqls")
+
+[sub_resource type="Theme" id="Theme_y6rxw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,3 +16,154 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u8p1v")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("2_4lh6i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="Scout Upgrades" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_j4vck")
+text = "Scout
+Upgrades"
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Atk"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Hp"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Spd"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel2" type="PanelContainer" parent="CenterContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2"]
+layout_mode = 2
+
+[node name="Slingshot Upgrades" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_j4vck")
+text = "Slingshot
+Upgrades"
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Atk"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Hp"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Spd"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel3" type="PanelContainer" parent="CenterContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3"]
+layout_mode = 2
+
+[node name="Spellcaster Upgrades" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_j4vck")
+text = "Spellcaster
+Upgrades"
+
+[node name="VBoxContainer3" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Atk"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Hp"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Spd"
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_y6rxw")
