@@ -3,11 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://c5pjw3yatl1xv" path="res://assets/resources/ui/temp_char_select.jpg" id="1_3nqls"]
 [ext_resource type="Theme" uid="uid://dsqobkwl8vb1d" path="res://assets/resources/ui/char_select_theme.tres" id="2_4lh6i"]
 [ext_resource type="Theme" uid="uid://cq8b07chjn5ft" path="res://assets/resources/ui/character_select_title.tres" id="3_j4vck"]
+[ext_resource type="Theme" uid="uid://bucf64ctmwqbx" path="res://upgrade_buttons_theme.tres" id="4_4ljt1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u8p1v"]
 texture = ExtResource("1_3nqls")
-
-[sub_resource type="Theme" id="Theme_y6rxw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -58,30 +57,33 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
-text = "Atk"
+text = "Atk:"
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
+text = "+1"
 
 [node name="VBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Hp"
+text = "Hp:"
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+text = "+1"
 
 [node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Spd"
+text = "Spd:"
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+text = "+1"
 
 [node name="Panel2" type="PanelContainer" parent="CenterContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
@@ -100,30 +102,33 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
-text = "Atk"
+text = "Atk:"
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
+text = "+1"
 
 [node name="VBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Hp"
+text = "Hp:"
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+text = "+1"
 
 [node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Spd"
+text = "Spd:"
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+text = "+1"
 
 [node name="Panel3" type="PanelContainer" parent="CenterContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
@@ -142,28 +147,31 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
-text = "Atk"
+text = "Atk:"
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer3"]
 layout_mode = 2
+text = "+1"
 
 [node name="VBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Hp"
+text = "Hp:"
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer2"]
 layout_mode = 2
+text = "+1"
 
 [node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer"]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Spd"
+text = "Spd:"
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_y6rxw")
+theme = ExtResource("4_4ljt1")
+text = "+1"
