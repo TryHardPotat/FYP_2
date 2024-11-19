@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://tkkgleyxal1x"]
 
 [ext_resource type="Texture2D" uid="uid://c5pjw3yatl1xv" path="res://assets/resources/ui/temp_char_select.jpg" id="1_3nqls"]
+[ext_resource type="Script" path="res://scenes/menus/upgrade_screen.gd" id="1_ffg1h"]
 [ext_resource type="Theme" uid="uid://dsqobkwl8vb1d" path="res://assets/resources/ui/char_select_theme.tres" id="2_4lh6i"]
-[ext_resource type="Theme" uid="uid://cq8b07chjn5ft" path="res://assets/resources/ui/character_select_title.tres" id="3_j4vck"]
-[ext_resource type="Theme" uid="uid://bucf64ctmwqbx" path="res://upgrade_buttons_theme.tres" id="4_4ljt1"]
+[ext_resource type="Texture2D" uid="uid://def2ky7vapck8" path="res://assets/textures/coin.png" id="5_n4rim"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u8p1v"]
 texture = ExtResource("1_3nqls")
@@ -15,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ffg1h")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -32,146 +33,98 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
-layout_mode = 2
 theme = ExtResource("2_4lh6i")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Panel" type="PanelContainer" parent="CenterContainer/PanelContainer/HBoxContainer"]
+[node name="CharacterNameLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel"]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Scout Upgrades" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_j4vck")
-text = "Scout
-Upgrades"
-
-[node name="VBoxContainer3" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer"]
+[node name="GoldContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer3"]
-layout_mode = 2
-text = "Atk:"
-
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer3"]
-layout_mode = 2
-text = "+1"
-
-[node name="VBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/PanelContainer/GoldContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "Hp:"
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/VBoxContainer/PanelContainer/GoldContainer/HBoxContainer"]
+texture_filter = 1
+position = Vector2(-20, 26)
+scale = Vector2(2.4375, 2.4375)
+texture = ExtResource("5_n4rim")
 
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "+1"
-
-[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer"]
+[node name="GoldValue" type="Label" parent="CenterContainer/VBoxContainer/PanelContainer/GoldContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Spd:"
-
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "+1"
-
-[node name="Panel2" type="PanelContainer" parent="CenterContainer/PanelContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2"]
+[node name="HealthContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Slingshot Upgrades" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_j4vck")
-text = "Slingshot
-Upgrades"
-
-[node name="VBoxContainer3" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/HealthContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer3"]
+[node name="Level" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/HealthContainer/VBoxContainer"]
 layout_mode = 2
-text = "Atk:"
+text = "1"
 
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer3"]
-layout_mode = 2
-text = "+1"
-
-[node name="VBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer"]
+[node name="Value" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/HealthContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "Hp:"
-
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "+1"
-
-[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer"]
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/HealthContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer"]
+[node name="UpgradeButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/HealthContainer/VBoxContainer"]
 layout_mode = 2
-text = "Spd:"
+text = "Attack"
 
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel2/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "+1"
-
-[node name="Panel3" type="PanelContainer" parent="CenterContainer/PanelContainer/HBoxContainer"]
+[node name="DamageContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/DamageContainer"]
 layout_mode = 2
 
-[node name="Spellcaster Upgrades" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_j4vck")
-text = "Spellcaster
-Upgrades"
-
-[node name="VBoxContainer3" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer"]
+[node name="Level" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/DamageContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer3"]
-layout_mode = 2
-text = "Atk:"
-
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer3"]
-layout_mode = 2
-text = "+1"
-
-[node name="VBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer"]
+[node name="Value" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/DamageContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "Hp:"
-
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "+1"
-
-[node name="VBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer"]
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/DamageContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer"]
+[node name="UpgradeButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/DamageContainer/VBoxContainer"]
 layout_mode = 2
-text = "Spd:"
+text = "Health"
 
-[node name="Button" type="Button" parent="CenterContainer/PanelContainer/HBoxContainer/Panel3/VBoxContainer/VBoxContainer"]
+[node name="SpeedContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("4_4ljt1")
-text = "+1"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer/SpeedContainer"]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/SpeedContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Value" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/SpeedContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/SpeedContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="UpgradeButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/SpeedContainer/VBoxContainer"]
+layout_mode = 2
+text = "Speed"
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/HealthContainer/VBoxContainer/UpgradeButton" to="." method="_on_health_upgrade_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/DamageContainer/VBoxContainer/UpgradeButton" to="." method="_on_damage_upgrade_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/SpeedContainer/VBoxContainer/UpgradeButton" to="." method="_on_speed_upgrade_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

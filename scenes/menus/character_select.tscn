@@ -146,9 +146,14 @@ text = "Select"
 layout_mode = 2
 text = "Upgrade"
 
+[node name="Back Button" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer/Select Scout" to="." method="_on_select_scout_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Warrior/VBoxContainer/Upgrade Scout" to="." method="_on_upgrade_scout_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer/Select Slingshot" to="." method="_on_select_slingshot_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Slingshot/VBoxContainer/Upgrade Slingshot" to="." method="_on_upgrade_slingshot_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer/Select Spellcaster" to="." method="_on_select_spellcaster_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/Spellcaster/VBoxContainer/Upgrade Spellcaster" to="." method="_on_upgrade_spellcaster_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/Back Button" to="." method="_on_back_button_pressed"]
