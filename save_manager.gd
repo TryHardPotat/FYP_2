@@ -6,7 +6,7 @@ var base_upgrade_cost = 50  # Starting cost for all upgrades
 var scout_base_stats = {
 	"health": 100,
 	"damage": 5,
-	"speed": 100,
+	"speed": 250,
 	"health_level": 0,
 	"damage_level": 0,
 	"speed_level": 0,
@@ -18,7 +18,7 @@ var scout_base_stats = {
 var slingshot_base_stats = {
 	"health": 75,
 	"damage": 5,
-	"speed": 90,
+	"speed": 275,
 	"health_level": 0,
 	"damage_level": 0,
 	"speed_level": 0,
@@ -29,8 +29,8 @@ var slingshot_base_stats = {
 
 var spellcaster_base_stats = {
 	"health": 50,
-	"damage": 5,
-	"speed": 80,
+	"damage": 10,
+	"speed": 225,
 	"health_level": 0,
 	"damage_level": 0,
 	"speed_level": 0,

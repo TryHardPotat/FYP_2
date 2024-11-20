@@ -3,7 +3,10 @@ extends Area2D
 @export var base_damage = 5
 var damage: float:
 	get:
-		return base_damage * Global.subclass_damage_multiplier
+		return SaveManager.stats.damage * Global.subclass_damage_multiplier
+
+func _ready():
+	base_damage = SaveManager.stats.damage  # Initialize base_damage with saved value
 
 func _process(_delta):
 	look_at(get_global_mouse_position())

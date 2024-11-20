@@ -1,6 +1,6 @@
 extends Area2D
 @onready var health_bar = $"../CanvasGroup/HealthBar"
-var max_health : float = float(SaveManager.stats["health"]) * Global.subclass_health_multiplier
+var max_health : float = float(SaveManager.stats.health) * Global.subclass_health_multiplier
 var health : float = max_health
 
 func _ready():

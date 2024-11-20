@@ -11,6 +11,9 @@ var player_exp = Global.player_exp
 var player_level = Global.player_level
 var base_damage = 10
 
+func _ready():
+	base_damage = SaveManager.stats.damage
+
 func _physics_process(_delta):
 	var input_velocity = movement_component.velocity
 	var acceleration = movement_component.current_acceleration

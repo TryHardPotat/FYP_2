@@ -1,5 +1,8 @@
 extends Node
 
+func _ready():
+	Engine.max_fps = 240
+
 ## Spawner Requirements
 var character_scenes = {
 	"Scout": preload("res://scenes/entities/scout.tscn"),

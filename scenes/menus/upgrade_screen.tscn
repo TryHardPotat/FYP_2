@@ -80,7 +80,7 @@ layout_mode = 2
 
 [node name="UpgradeButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/HealthContainer/VBoxContainer"]
 layout_mode = 2
-text = "Attack"
+text = "Health"
 
 [node name="DamageContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -99,7 +99,7 @@ layout_mode = 2
 
 [node name="UpgradeButton" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/DamageContainer/VBoxContainer"]
 layout_mode = 2
-text = "Health"
+text = "Attack"
 
 [node name="SpeedContainer" type="PanelContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2

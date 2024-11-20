@@ -4,8 +4,8 @@ class_name Movement_Component
 @onready var dash_duration : Timer = $"../Dash Duration"
 @onready var dash_cooldown : Timer = $"../Dash Cooldown"
 
-@export var speed = 250 * Global.subclass_speed_multiplier
 @export var base_acceleration = 0.1 # Ranges from 0 - 1
+var speed = SaveManager.stats.speed * Global.subclass_speed_multiplier
 var current_acceleration = base_acceleration
 
 var input_direction = Vector2.ZERO
