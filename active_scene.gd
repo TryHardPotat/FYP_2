@@ -2,7 +2,6 @@ extends Node2D
 
 func _ready():
 	Global.current_run_gold = 0
-	Global.player_exp = 1
 	Global.player_exp = 0
 	Global.gold = SaveManager.stats["gold"]
 	
@@ -13,4 +12,3 @@ func _ready():
 
 func _on_difficulty_increased(interval: int, _health: float, _damage: float, _speed: float):
 	print("Difficulty increased! Interval: %d" % interval)
-	# Update UI or other game systems here
