@@ -26,7 +26,6 @@ func input_handler():
 func movement_handler(_delta):
 	velocity = input_direction * speed
 
-## TODO: Implement dash cooldown.
 func input_dash():
 	if Input.is_action_pressed("dash"):
 		dash()
