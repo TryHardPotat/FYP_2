@@ -116,7 +116,7 @@ region = Rect2(896, 0, 128, 128)
 [sub_resource type="SpriteFrames" id="SpriteFrames_vxv44"]
 animations = [{
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_yhu8y")
 }, {
 "duration": 1.0,
@@ -131,9 +131,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bm8e6")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
-"speed": 30.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -168,7 +168,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -197,7 +197,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18607"]
