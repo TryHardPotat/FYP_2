@@ -4,6 +4,7 @@ class_name Movement_Component
 @onready var dash_duration : Timer = $"../Dash Duration"
 @onready var dash_cooldown : Timer = $"../Dash Cooldown"
 @onready var sprite = $"../Sprite"
+@onready var vfx = $"../Hitbox/AnimatedSprite2D"
 
 @export var base_acceleration = 0.1 # Ranges from 0 - 1
 var speed = SaveManager.stats.speed * Global.subclass_speed_multiplier
@@ -66,8 +67,12 @@ func _input(event):
 func start_attack():
 	is_attacking = true
 	sprite.play("attack")
+	vfx.visible = true
+	vfx.play("default")
 	sprite.animation_finished.connect(self._on_attack_animation_finished)
 
 func _on_attack_animation_finished():
 	is_attacking = false
+	vfx.visible = false
+	vfx.stop()
 	sprite.animation_finished.disconnect(self._on_attack_animation_finished)
