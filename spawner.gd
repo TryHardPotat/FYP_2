@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var timer : Timer = $Timer
 @onready var enemy_container = get_tree().get_root().get_node("ActiveScene/Enemies")
-@export var spawn_scene : PackedScene ## Enemy Scene
+@export var spawn_scenes : Array[PackedScene] ## Array of Enemy Scenes to spawn randomly
 @export var target_scene : PackedScene = Global.selected_character ## Player Scene
 @export var spawn_interval : float = 2.0
 @export var spawn_radius : float = 800.0
@@ -29,9 +29,15 @@ func set_player_reference():
 		print("No target scene set")
 
 func _on_timer_timeout():
-	if spawn_scene and player and enemy_container:
-		var instance = spawn_scene.instantiate()
+	# Check if we have any spawn scenes and a player
+	if not spawn_scenes.is_empty() and player and enemy_container:
+		# Randomly select an enemy scene from the array
+		var selected_spawn_scene = spawn_scenes.pick_random()
 		
+		# Instantiate the selected enemy scene
+		var instance = selected_spawn_scene.instantiate()
+		
+		# Set player reference for the enemy
 		if instance.has_method("set_player"):
 			instance.set_player(player)
 		elif instance.has_property("player"):
@@ -55,7 +61,7 @@ func _on_timer_timeout():
 		
 		enemy_container.add_child(instance)
 	else:
-		print("No Scene to Spawn")
+		print("No Scenes to Spawn")
 
 func update_target_scene(new_scene: PackedScene):
 	target_scene = new_scene

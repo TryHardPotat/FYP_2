@@ -13,7 +13,11 @@ extends CharacterBody2D
 @onready var base_damage = damage
 @onready var base_speed = speed
 
+@onready var sprite = $Sprite2D
+
 func _ready():
+	sprite.play("default")
+	
 	var scaler = get_node("/root/ActiveScene/DifficultyScaler")
 	if scaler:
 		health = base_health * scaler.get_health_multiplier()
