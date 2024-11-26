@@ -56,9 +56,9 @@ layout_mode = 2
 theme = ExtResource("3_lww6p")
 text = "Play"
 
-[node name="Options" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/VBoxContainer"]
+[node name="Tutorial" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "Options"
+text = "Tutorial"
 
 [node name="Credits" type="Button" parent="MarginContainer/CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -69,6 +69,6 @@ layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

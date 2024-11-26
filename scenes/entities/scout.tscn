@@ -10,12 +10,12 @@
 [ext_resource type="Script" path="res://scenes/entities/dash_cooldown.gd" id="5_7cs2x"]
 [ext_resource type="Script" path="res://hurtbox.gd" id="6_wim8b"]
 [ext_resource type="Script" path="res://melee_attack_component.gd" id="7_1y3nw"]
-[ext_resource type="Texture2D" uid="uid://2ldrxq3nb1ui" path="res://assets/textures/onijiri.png" id="8_103gt"]
 [ext_resource type="Theme" uid="uid://djql0f4u6b3ic" path="res://assets/resources/ui/player_health.tres" id="8_c2exs"]
 [ext_resource type="Texture2D" uid="uid://dhbp1n1jh1qvc" path="res://assets/textures/coin1_16x16.png" id="9_f2t5o"]
 [ext_resource type="Script" path="res://scenes/entities/gold_text.gd" id="9_w5dh8"]
 [ext_resource type="Script" path="res://scenes/entities/ui_gold.gd" id="10_4g8np"]
 [ext_resource type="Theme" uid="uid://bu5y5a1ipkbl6" path="res://assets/resources/ui/gold_ui.tres" id="11_ymirx"]
+[ext_resource type="Texture2D" uid="uid://w0oxory6nuhe" path="res://assets/textures/arrow.png" id="12_0tnrb"]
 [ext_resource type="Theme" uid="uid://dqb6clx3o3inv" path="res://scenes/entities/exp_bar.tres" id="13_12fdb"]
 [ext_resource type="Texture2D" uid="uid://wrm4lkacr6nn" path="res://assets/textures/scout_SLASH.png" id="13_e33rb"]
 [ext_resource type="Script" path="res://melee_attack_duration.gd" id="13_m1yoi"]
@@ -364,7 +364,7 @@ zoom = Vector2(2.25, 2.25)
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vxv44")
-animation = &"attack"
+animation = &"idle"
 
 [node name="Collision Box" type="CollisionShape2D" parent="."]
 position = Vector2(1, 14)
@@ -405,8 +405,7 @@ shape = SubResource("CapsuleShape2D_mnjl8")
 [node name="Sprite2D" type="Sprite2D" parent="Hitbox"]
 texture_filter = 1
 position = Vector2(24, 0)
-rotation = 1.5708
-texture = ExtResource("8_103gt")
+texture = ExtResource("12_0tnrb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Hitbox"]
 visible = false

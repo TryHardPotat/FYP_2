@@ -65,11 +65,12 @@ func _input(event):
 		start_attack()
 
 func start_attack():
-	is_attacking = true
-	sprite.play("attack")
-	vfx.visible = true
-	vfx.play("default")
-	sprite.animation_finished.connect(self._on_attack_animation_finished)
+	if vfx:
+		is_attacking = true
+		sprite.play("attack")
+		vfx.visible = true
+		vfx.play("default")
+		sprite.animation_finished.connect(self._on_attack_animation_finished)
 
 func _on_attack_animation_finished():
 	is_attacking = false

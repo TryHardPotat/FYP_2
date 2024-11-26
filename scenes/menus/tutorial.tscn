@@ -1,0 +1,148 @@
+[gd_scene load_steps=6 format=3 uid="uid://bsrpiyhhmsxmk"]
+
+[ext_resource type="Script" path="res://scenes/menus/tutorial.gd" id="1_lndh4"]
+[ext_resource type="Texture2D" uid="uid://c5pjw3yatl1xv" path="res://assets/resources/ui/temp_char_select.jpg" id="2_0wete"]
+[ext_resource type="Theme" uid="uid://dsqobkwl8vb1d" path="res://assets/resources/ui/char_select_theme.tres" id="3_vtdf2"]
+[ext_resource type="Theme" uid="uid://cq8b07chjn5ft" path="res://assets/resources/ui/character_select_title.tres" id="4_1ywat"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mai76"]
+texture = ExtResource("2_0wete")
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lndh4")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mai76")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_vtdf2")
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_1ywat")
+text = "Control Scheme"
+
+[node name="Up" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Action" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Up"]
+layout_mode = 2
+text = "Move Up"
+
+[node name="Dash" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Up"]
+layout_mode = 2
+text = " ------------ "
+
+[node name="Button" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Up"]
+layout_mode = 2
+text = "w"
+
+[node name="Down" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Action" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Down"]
+layout_mode = 2
+text = "Move Down"
+
+[node name="Dash" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Down"]
+layout_mode = 2
+text = " ---------- "
+
+[node name="Button" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Down"]
+layout_mode = 2
+text = "s"
+
+[node name="Left" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Action" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Left"]
+layout_mode = 2
+text = "Move Left"
+
+[node name="Dash" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Left"]
+layout_mode = 2
+text = " ---------- "
+
+[node name="Button" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Left"]
+layout_mode = 2
+text = "a"
+
+[node name="Right" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Action" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Right"]
+layout_mode = 2
+text = "Move Right"
+
+[node name="Dash" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Right"]
+layout_mode = 2
+text = " --------- "
+
+[node name="Button" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Right"]
+layout_mode = 2
+text = "d"
+
+[node name="Dash" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Action" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Dash"]
+layout_mode = 2
+text = "Dash"
+
+[node name="Dash" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Dash"]
+layout_mode = 2
+text = " --------------- "
+
+[node name="Button" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Dash"]
+layout_mode = 2
+text = "lshift"
+
+[node name="Attack" type="HBoxContainer" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Action" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Attack"]
+layout_mode = 2
+text = "Attack"
+
+[node name="Dash" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Attack"]
+layout_mode = 2
+text = " ------------- "
+
+[node name="Button" type="Label" parent="CenterContainer/PanelContainer/VBoxContainer/Attack"]
+layout_mode = 2
+text = "space"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 974.0
+offset_right = 276.0
+offset_bottom = 1049.0
+theme = ExtResource("3_vtdf2")
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
