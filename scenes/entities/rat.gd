@@ -38,6 +38,7 @@ func update_health():
 func despawn():
 	print('rat despawned - outside playarea')
 	queue_free()
+	
 
 func die():
 	Global.current_run_gold += 1
