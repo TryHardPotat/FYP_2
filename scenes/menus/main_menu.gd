@@ -10,6 +10,7 @@ func _on_tutorial_pressed():
 
 func _on_credits_pressed():
 	print('credits button pressed')
+	get_tree().change_scene_to_file("res://scenes/menus/credits.tscn")
 
 func _on_quit_pressed():
 	print('quit button pressed')

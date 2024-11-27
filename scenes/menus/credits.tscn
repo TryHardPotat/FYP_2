@@ -1,0 +1,163 @@
+[gd_scene load_steps=7 format=3 uid="uid://becn88nln16b4"]
+
+[ext_resource type="Script" path="res://scenes/menus/tutorial.gd" id="1_sj01b"]
+[ext_resource type="Texture2D" uid="uid://c5pjw3yatl1xv" path="res://assets/resources/ui/temp_char_select.jpg" id="2_oowxg"]
+[ext_resource type="Theme" uid="uid://dsqobkwl8vb1d" path="res://assets/resources/ui/char_select_theme.tres" id="3_xoeib"]
+[ext_resource type="Theme" uid="uid://cq8b07chjn5ft" path="res://assets/resources/ui/character_select_title.tres" id="4_jo65j"]
+[ext_resource type="Theme" uid="uid://wetqpq70f54a" path="res://assets/resources/ui/stats_text.tres" id="5_hdpah"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mai76"]
+texture = ExtResource("2_oowxg")
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sj01b")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mai76")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 376.885
+offset_top = 61.0
+offset_right = 1756.89
+offset_bottom = 1019.0
+theme = ExtResource("3_xoeib")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_jo65j")
+text = "Credits"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Developed by:"
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_hdpah")
+text = "Shane Liang Khai-Xien"
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Programming"
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_hdpah")
+text = "Shane Liang Khai-Xien"
+
+[node name="Label5" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Game Design"
+
+[node name="Label6" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_hdpah")
+text = "Shane Liang Khai-Xien"
+
+[node name="Label7" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Art & Animation"
+
+[node name="Label8" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_hdpah")
+text = "Liang Kate-Lynn
+Shane Liang Khai-Xien"
+
+[node name="Label9" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Texture Assets"
+
+[node name="Label10" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_hdpah")
+text = "Main Menu Image - Nauris
+Tileset - Cainos"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label9" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Audio Assets"
+
+[node name="Label10" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_hdpah")
+text = "Level Up #3 - Universfield
+Swing Stick - Pixabay
+Slingshot #2 - freesound_community"
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Sound Design"
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_hdpah")
+text = "Shane Liang Khai-Xien"
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Special Thanks"
+
+[node name="Label4" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_hdpah")
+text = "Friends and family 
+for their unwavering support."
+
+[node name="Label5" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Playtesters"
+
+[node name="Label6" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_hdpah")
+text = "Everyone who took the time
+to participate in our survey."
+
+[node name="Label7" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Powered By"
+
+[node name="Label8" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("5_hdpah")
+text = "Godot Engine 4.3"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 36.0
+offset_top = 974.0
+offset_right = 276.0
+offset_bottom = 1049.0
+theme = ExtResource("3_xoeib")
+text = "Back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
