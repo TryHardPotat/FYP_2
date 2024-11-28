@@ -1,39 +1,39 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4rlcx3u06dkd"]
+[gd_scene load_steps=16 format=3 uid="uid://v7cs6e83fakh"]
 
-[ext_resource type="Script" path="res://scenes/entities/rat.gd" id="1_wqp6x"]
-[ext_resource type="Texture2D" uid="uid://chpliklaia0ny" path="res://assets/textures/ent.png" id="2_mglgv"]
-[ext_resource type="Theme" uid="uid://bjp138hr58qyf" path="res://assets/resources/ui/enemy_healthbar.tres" id="3_qryed"]
+[ext_resource type="Script" path="res://scenes/entities/rat.gd" id="1_tnl1j"]
+[ext_resource type="Texture2D" uid="uid://chpliklaia0ny" path="res://assets/textures/ent.png" id="2_76o5v"]
+[ext_resource type="Theme" uid="uid://bjp138hr58qyf" path="res://assets/resources/ui/enemy_healthbar.tres" id="3_uu5ak"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stwne"]
-atlas = ExtResource("2_mglgv")
+atlas = ExtResource("2_76o5v")
 region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ws4uh"]
-atlas = ExtResource("2_mglgv")
+atlas = ExtResource("2_76o5v")
 region = Rect2(128, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_06oy0"]
-atlas = ExtResource("2_mglgv")
+atlas = ExtResource("2_76o5v")
 region = Rect2(256, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hb7vs"]
-atlas = ExtResource("2_mglgv")
+atlas = ExtResource("2_76o5v")
 region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8gxd"]
-atlas = ExtResource("2_mglgv")
+atlas = ExtResource("2_76o5v")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0rq6i"]
-atlas = ExtResource("2_mglgv")
+atlas = ExtResource("2_76o5v")
 region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uys8n"]
-atlas = ExtResource("2_mglgv")
+atlas = ExtResource("2_76o5v")
 region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ug1uu"]
-atlas = ExtResource("2_mglgv")
+atlas = ExtResource("2_76o5v")
 region = Rect2(896, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tcp72"]
@@ -77,14 +77,15 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu3e2"]
 size = Vector2(64, 64)
 
-[node name="Ent" type="CharacterBody2D"]
+[node name="Weeping Fungus" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 3
 collision_mask = 3
 motion_mode = 1
-script = ExtResource("1_wqp6x")
-speed = 125
-damage = 3.0
+script = ExtResource("1_tnl1j")
+speed = 50
+health = 25.0
+damage = 10.0
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -120,7 +121,7 @@ offset_bottom = -42.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1.16, 1)
-theme = ExtResource("3_qryed")
+theme = ExtResource("3_uu5ak")
 max_value = 10.0
 value = 10.0
 show_percentage = false
