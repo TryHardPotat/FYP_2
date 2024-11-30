@@ -23,7 +23,7 @@ func update_ui():
 	print("Updating UI with stats: ", stats) # Debug print
 	
 	# Update character name
-	$CenterContainer/VBoxContainer/CharacterNameLabel.text = SaveManager.selected_character
+	$CharacterNameLabel.text = SaveManager.selected_character
 	
 	# Update levels
 	$CenterContainer/VBoxContainer/HBoxContainer/HealthContainer/VBoxContainer/Level.text = "Level: " + str(stats.get("health_level", 0))
@@ -41,7 +41,7 @@ func update_ui():
 	$CenterContainer/VBoxContainer/HBoxContainer/SpeedContainer/VBoxContainer/Cost.text = str(stats.get("speed_cost", 50)) + " Gold"
 	
 	# Update gold
-	$CenterContainer/VBoxContainer/PanelContainer/GoldContainer/HBoxContainer/GoldValue.text = str(stats.get("gold", 0))
+	$GoldValue.text = str(stats.get("gold", 0))
 	
 	# Update button states based on affordability
 	update_button_states()
