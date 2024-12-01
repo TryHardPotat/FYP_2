@@ -1,6 +1,7 @@
-[gd_scene load_steps=63 format=3 uid="uid://dtwnt8jxx8j8f"]
+[gd_scene load_steps=64 format=3 uid="uid://dtwnt8jxx8j8f"]
 
 [ext_resource type="Script" path="res://scenes/entities/slingshot.gd" id="1_evshs"]
+[ext_resource type="Texture2D" uid="uid://dmic8cn0o4ep3" path="res://assets/textures/shadow.png" id="2_2qgp5"]
 [ext_resource type="Texture2D" uid="uid://bqjtcoydsagt1" path="res://assets/textures/slingshot_atk.png" id="2_viu28"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_31b8o"]
 [ext_resource type="Texture2D" uid="uid://cb4cl13viq0mv" path="res://assets/textures/slingshot_idle.png" id="3_gsl4q"]
@@ -326,6 +327,11 @@ script = ExtResource("1_evshs")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.25, 2.25)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_2qgp5")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

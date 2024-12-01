@@ -1,67 +1,82 @@
-[gd_scene load_steps=16 format=3 uid="uid://v7cs6e83fakh"]
+[gd_scene load_steps=19 format=3 uid="uid://v7cs6e83fakh"]
 
 [ext_resource type="Script" path="res://scenes/entities/rat.gd" id="1_tnl1j"]
-[ext_resource type="Texture2D" uid="uid://chpliklaia0ny" path="res://assets/textures/ent.png" id="2_76o5v"]
+[ext_resource type="Texture2D" uid="uid://4uwwdxduhbo2" path="res://assets/textures/enemy_sadshroom.png" id="2_wenro"]
+[ext_resource type="Texture2D" uid="uid://dmic8cn0o4ep3" path="res://assets/textures/shadow.png" id="3_7e6s6"]
 [ext_resource type="Theme" uid="uid://bjp138hr58qyf" path="res://assets/resources/ui/enemy_healthbar.tres" id="3_uu5ak"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_stwne"]
-atlas = ExtResource("2_76o5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qq8d"]
+atlas = ExtResource("2_wenro")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ws4uh"]
-atlas = ExtResource("2_76o5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj8n3"]
+atlas = ExtResource("2_wenro")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_06oy0"]
-atlas = ExtResource("2_76o5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6n2c"]
+atlas = ExtResource("2_wenro")
 region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hb7vs"]
-atlas = ExtResource("2_76o5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pco6i"]
+atlas = ExtResource("2_wenro")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8gxd"]
-atlas = ExtResource("2_76o5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyhxe"]
+atlas = ExtResource("2_wenro")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0rq6i"]
-atlas = ExtResource("2_76o5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcb1j"]
+atlas = ExtResource("2_wenro")
 region = Rect2(640, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uys8n"]
-atlas = ExtResource("2_76o5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_76wbk"]
+atlas = ExtResource("2_wenro")
 region = Rect2(768, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ug1uu"]
-atlas = ExtResource("2_76o5v")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0oxxb"]
+atlas = ExtResource("2_wenro")
 region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw4lt"]
+atlas = ExtResource("2_wenro")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltcwc"]
+atlas = ExtResource("2_wenro")
+region = Rect2(1152, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tcp72"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_stwne")
+"texture": SubResource("AtlasTexture_2qq8d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ws4uh")
+"texture": SubResource("AtlasTexture_qj8n3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_06oy0")
+"texture": SubResource("AtlasTexture_x6n2c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hb7vs")
+"texture": SubResource("AtlasTexture_pco6i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a8gxd")
+"texture": SubResource("AtlasTexture_hyhxe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0rq6i")
+"texture": SubResource("AtlasTexture_jcb1j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uys8n")
+"texture": SubResource("AtlasTexture_76wbk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ug1uu")
+"texture": SubResource("AtlasTexture_0oxxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw4lt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltcwc")
 }],
 "loop": true,
 "name": &"default",
@@ -86,6 +101,11 @@ script = ExtResource("1_tnl1j")
 speed = 50
 health = 25.0
 damage = 10.0
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(10, -26)
+scale = Vector2(3, 3)
+texture = ExtResource("3_7e6s6")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

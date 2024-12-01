@@ -1,6 +1,7 @@
-[gd_scene load_steps=68 format=3 uid="uid://byjobqop50cew"]
+[gd_scene load_steps=69 format=3 uid="uid://byjobqop50cew"]
 
 [ext_resource type="Script" path="res://scenes/entities/scout.gd" id="1_gmnaq"]
+[ext_resource type="Texture2D" uid="uid://dmic8cn0o4ep3" path="res://assets/textures/shadow.png" id="2_hx3xf"]
 [ext_resource type="Texture2D" uid="uid://ckohwqrrpaikv" path="res://assets/textures/scout_atk.png" id="2_l26f7"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_dajo0"]
 [ext_resource type="Texture2D" uid="uid://c0qst7n1wnr3p" path="res://assets/textures/scout_idle.png" id="3_ohmo3"]
@@ -360,6 +361,11 @@ script = ExtResource("1_gmnaq")
 
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(2.25, 2.25)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(2, -4)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_hx3xf")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

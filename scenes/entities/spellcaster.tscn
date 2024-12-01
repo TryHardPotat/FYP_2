@@ -1,7 +1,8 @@
-[gd_scene load_steps=59 format=3 uid="uid://y5nt8o6r3cxr"]
+[gd_scene load_steps=60 format=3 uid="uid://y5nt8o6r3cxr"]
 
 [ext_resource type="Script" path="res://scenes/entities/spellcaster.gd" id="1_viep1"]
 [ext_resource type="Texture2D" uid="uid://cflxvfw2idunq" path="res://assets/textures/spell_atk.png" id="2_bqu6s"]
+[ext_resource type="Texture2D" uid="uid://dmic8cn0o4ep3" path="res://assets/textures/shadow.png" id="2_trbqr"]
 [ext_resource type="Script" path="res://movement_component.gd" id="3_7q5my"]
 [ext_resource type="Texture2D" uid="uid://1f800jmsg706" path="res://assets/textures/spell_idle.png" id="3_fmnqp"]
 [ext_resource type="Script" path="res://scenes/entities/ranged_attack_component.gd" id="4_1rjot"]
@@ -298,6 +299,11 @@ script = ExtResource("1_viep1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.25, 2.25)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_trbqr")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
