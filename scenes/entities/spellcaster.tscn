@@ -301,8 +301,8 @@ script = ExtResource("1_viep1")
 zoom = Vector2(2.25, 2.25)
 
 [node name="Shadow" type="Sprite2D" parent="."]
-position = Vector2(0, -8)
-scale = Vector2(1.5, 1.5)
+position = Vector2(3, -11)
+scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_trbqr")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

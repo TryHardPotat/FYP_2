@@ -329,7 +329,7 @@ script = ExtResource("1_evshs")
 zoom = Vector2(2.25, 2.25)
 
 [node name="Shadow" type="Sprite2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(3, -4)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_2qgp5")
 
